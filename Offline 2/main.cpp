@@ -5,9 +5,9 @@ template<class T>
 void print_matrix(vector<vector<T>> &mat){
     for(int i=0;i<mat.size();i++){
         for(int j=0;j<mat[i].size();j++){
-            cout<<mat[i][j]<<" ";
+            cout<<mat[i][j]<<"\t";
         }
-        cout<<endl;
+        cout<<"\n";
     }
 }
 
@@ -15,6 +15,26 @@ int n;
 vector<vector<int>> row,col,matrix,solved_matrix1,solved_matrix2; 
 vector<int> domain_size,degree;
 vector<int> variables,values;
+
+bool goalcheck(){
+    vector<vector<int>> row(n,vector<int>(n+1,0));
+    vector<vector<int>> col(n,vector<int>(n+1,0));
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            row[i][matrix[i][j]]++;
+            col[j][matrix[i][j]]++;
+        }
+    }
+
+    for(int i=0;i<n;i++){
+        for(int k=1;k<=n;k++){
+            if( row[i][k] != 1 || col[i][k] != 1 )
+                return false;
+        }
+    }
+    return true;
+}
 
 bool cmp_vah1(int i,int j){
     return domain_size[i]<domain_size[j];
@@ -118,7 +138,7 @@ bool backtrack(){
     int r=var/n,c=var%n;
     
     for(int k=1;k<=n;k++){
-        if(row[r][k]||col[c][k]) continue ;
+        if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
         row[r][k]++;
         col[c][k]++;
@@ -139,27 +159,27 @@ bool forwardcheck(){
     int r=var/n,c=var%n;
     
     for(int k=1;k<=n;k++){
-        if(row[r][k]||col[c][k]) continue ;
+        if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
         row[r][k]++;
         col[c][k]++;
         for(int i=0;i<n;i++){
-            if( !matrix[r][i] ){
+            if( i != c && !matrix[r][i] ){
                 erase_variable(r*n+i);
                 domain_size[r*n+i]--;
                 degree[r*n+i]--;
             }
-            if( !matrix[i][c] ){
+            if( i != r && !matrix[i][c] ){
                 erase_variable(i*n+c);
                 domain_size[i*n+c]--;
                 degree[i*n+c]--;
             }
         }
         for(int i=0;i<n;i++){
-            if( !matrix[r][i] ){
+            if( i != c && !matrix[r][i] ){
                 insert_variable(r*n+i);
             }
-            if( !matrix[i][c] ){
+            if( i != r && !matrix[i][c] ){
                 insert_variable(i*n+c);
             }
         }
@@ -168,22 +188,22 @@ bool forwardcheck(){
         if(res) return true;
 
         for(int i=0;i<n;i++){
-            if( !matrix[r][i] ){
+            if( i != c && !matrix[r][i] ){
                 erase_variable(r*n+i);
                 domain_size[r*n+i]++;
                 degree[r*n+i]++;
             }
-            if( !matrix[i][c] ){
+            if( i != r && !matrix[i][c] ){
                 erase_variable(i*n+c);
                 domain_size[i*n+c]++;
                 degree[i*n+c]++;
             }
         }
         for(int i=0;i<n;i++){
-            if( !matrix[r][i] ){
+            if( i != c && !matrix[r][i] ){
                 insert_variable(r*n+i);
             }
-            if( !matrix[i][c] ){
+            if( i != r && !matrix[i][c] ){
                 insert_variable(i*n+c);
             }
         }
@@ -297,7 +317,9 @@ int main(){
     restore_variable=insert_variable_vah1;
     insert_variable=insert_variable_vah1;
     erase_variable=erase_variable_vah1;
-    forwardcheck();
+    bool found=forwardcheck();
     cout<<"after forwardchecking: "<<endl;
+    cout<<(found?"result: true":"result: false")<<endl;
+    cout<<(goalcheck()?"goal: true":"goal: false")<<endl;
     print_matrix(matrix);
 }
