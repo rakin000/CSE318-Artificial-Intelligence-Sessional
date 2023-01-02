@@ -14,7 +14,7 @@ void print_matrix(vector<vector<T>> &mat){
 int n; 
 vector<vector<int>> row,col,matrix,solved_matrix1,solved_matrix2; 
 vector<int> domain_size,degree;
-vector<int> variables,values,vah5;
+vector<int> variables,values;
 
 bool cmp_vah1(int i,int j){
     return domain_size[i]<domain_size[j];
@@ -43,6 +43,13 @@ int get_next_variable_vah1(){
     vah1.erase(vah1.begin());
     return t; 
 }
+void insert_variable_vah1(int v){
+    vah1.insert(v) ;
+}
+void erase_variable_vah1(int v){
+    vah1.erase(v) ;
+}
+
 int get_next_variable_vah2(){
     if( vah2.empty() )
         return -1; 
@@ -50,6 +57,13 @@ int get_next_variable_vah2(){
     vah2.erase(vah2.begin());
     return t; 
 }
+void insert_variable_vah2(int v){
+    vah2.insert(v) ;
+}
+void erase_variable_vah2(int v){
+    vah2.erase(v);
+}
+
 int get_next_variable_vah3(){
     if( vah3.empty() )
         return -1; 
@@ -57,6 +71,13 @@ int get_next_variable_vah3(){
     vah3.erase(vah3.begin());
     return t; 
 }
+void insert_variable_vah3(int v){
+    vah3.insert(v);
+}
+void erase_variable_vah3(int v){
+    vah3.erase(v) ;
+}
+
 int get_next_variable_vah4(){
     if( vah4.empty() )
         return -1; 
@@ -64,35 +85,113 @@ int get_next_variable_vah4(){
     vah4.erase(vah4.begin());
     return t; 
 }
+void insert_variable_vah4(int v){
+    vah4.insert(v);
+}
+void erase_variable_vah4(int v){
+    vah4.erase(v) ;
+}
+
 int get_next_variable_vah5(){
     if(vah5.empty()) return -1;
-    int t=*vah.rbegin();
+    int t=*vah5.rbegin();
     vah5.pop_back();
     return t;
 }
+void restore_variable_vah5(int v){
+    vah5.push_back(v);
+}
+void erase_variable_vah5(int v){
+}
+void insert_variable_vah5(int v){
+}
 
-int (*get_next_variable)(); 
+int (*get_next_variable)();
+void (*insert_variable)(int);
+void (*erase_variable)(int);
+void (*restore_variable)(int);
 
-bool backtrack(int i){
-    if(i==variables.size()) return true;
+bool backtrack(){
+    int var=get_next_variable();
+    if(var==-1) return true;
 
-    int r=variables[i]/n,c=variables[i]%n;
+    int r=var/n,c=var%n;
     
     for(int k=1;k<=n;k++){
         if(row[r][k]||col[c][k]) continue ;
         matrix[r][c]=k;
         row[r][k]++;
         col[c][k]++;
-        bool res=backtrack(i+1);
+        bool res=backtrack();
         if(res) return true;
         row[r][k]--;
         col[c][k]--;
 
     }
+    restore_variable(var);
     return false; 
 }
 
-bool forwardcheck(int i){
+bool forwardcheck(){
+    int var=get_next_variable();
+    if(var==-1) return true;
+
+    int r=var/n,c=var%n;
+    
+    for(int k=1;k<=n;k++){
+        if(row[r][k]||col[c][k]) continue ;
+        matrix[r][c]=k;
+        row[r][k]++;
+        col[c][k]++;
+        for(int i=0;i<n;i++){
+            if( !matrix[r][i] ){
+                erase_variable(r*n+i);
+                domain_size[r*n+i]--;
+                degree[r*n+i]--;
+            }
+            if( !matrix[i][c] ){
+                erase_variable(i*n+c);
+                domain_size[i*n+c]--;
+                degree[i*n+c]--;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if( !matrix[r][i] ){
+                insert_variable(r*n+i);
+            }
+            if( !matrix[i][c] ){
+                insert_variable(i*n+c);
+            }
+        }
+     
+        bool res=forwardcheck();
+        if(res) return true;
+
+        for(int i=0;i<n;i++){
+            if( !matrix[r][i] ){
+                erase_variable(r*n+i);
+                domain_size[r*n+i]++;
+                degree[r*n+i]++;
+            }
+            if( !matrix[i][c] ){
+                erase_variable(i*n+c);
+                domain_size[i*n+c]++;
+                degree[i*n+c]++;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if( !matrix[r][i] ){
+                insert_variable(r*n+i);
+            }
+            if( !matrix[i][c] ){
+                insert_variable(i*n+c);
+            }
+        }
+        row[r][k]--;
+        col[c][k]--;
+
+    }
+    restore_variable(var);
     return false; 
 }
 
@@ -175,6 +274,7 @@ int main(){
         vah4.insert(y);
     }
     vah5 = variables ;
+    shuffle(vah5.begin(),vah5.end(),default_random_engine(3));
     
     cout<<"variables size="<<variables.size()<<endl;
     cout<<"VAH1, size="<<vah1.size()<<endl;
@@ -189,8 +289,15 @@ int main(){
     cout<<"VAH4, size="<<vah4.size()<<endl;
     for(int x:vah4)
         cout<<x<<" "; cout<<endl;
+    cout<<"VAH5, size="<<vah5.size()<<endl;
+    for(int x:vah5)
+        cout<<x<<" "; cout<<endl;
     
-    backtrack(0);
-    cout<<"after backtracking: "<<endl;
+    get_next_variable=get_next_variable_vah1;
+    restore_variable=insert_variable_vah1;
+    insert_variable=insert_variable_vah1;
+    erase_variable=erase_variable_vah1;
+    forwardcheck();
+    cout<<"after forwardchecking: "<<endl;
     print_matrix(matrix);
 }
