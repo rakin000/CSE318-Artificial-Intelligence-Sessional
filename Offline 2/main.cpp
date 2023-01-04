@@ -3,12 +3,15 @@ using namespace std ;
 
 template<class T> 
 void print_matrix(vector<vector<T>> &mat){
+   
     for(int i=0;i<mat.size();i++){
         for(int j=0;j<mat[i].size();j++){
-            cout<<mat[i][j]<<"\t";
+            // cout<<mat[i][j]<<" ";
+            printf("%4d ",mat[i][j]);
         }
         cout<<"\n";
     }
+    
 }
 
 int n; 
@@ -170,11 +173,11 @@ bool forwardcheck(){
 
     int r=var/n,c=var%n;
     
-    cout<<"var: "<<var<<endl;
-    cout<<"Start Backtracking: "<<endl;
-    cout<<"size: "<<vah1.size()<<endl;
-    for(int x: vah1)
-        cout<<x<<" "; cout<<endl;
+    // cout<<"var: "<<var<<endl;
+    // cout<<"Start Backtracking: "<<endl;
+    // cout<<"size: "<<vah1.size()<<endl;
+    // for(int x: vah1)
+    //     cout<<x<<" "; cout<<endl;
 
     for(int i=0;i<n;i++){
         if( i!=c && !matrix[r][i] ){
@@ -189,18 +192,18 @@ bool forwardcheck(){
         }
     }
     for(int i=0;i<n;i++){
-        if( i!=c && !matrix[r][i] && domain_size[r*n+i]>0 ){
+        if( i!=c && !matrix[r][i]  ){
             insert_variable(r*n+i);
         }
-        if( i!=r && !matrix[i][c] && domain_size[i*n+c]>0 ){
+        if( i!=r && !matrix[i][c]){
             insert_variable(i*n+c);
         }
     }
     
-    cout<<"Before Backtracking: "<<endl;
-    cout<<"size: "<<vah1.size()<<endl;
-    for(int x:vah1)
-        cout<<x<<" "; cout<<endl;
+    // cout<<"Before Backtracking: "<<endl;
+    // cout<<"size: "<<vah1.size()<<endl;
+    // for(int x:vah1)
+    //     cout<<x<<" "; cout<<endl;
 
 
     for(int k=1;k<=n;k++){
@@ -216,10 +219,10 @@ bool forwardcheck(){
     }
     matrix[r][c]=0;
 
-    cout<<"After Done Backtracking: "<<endl;
-    cout<<"size: "<<vah1.size()<<endl;
-    for(int x:vah1)
-        cout<<x<<" "; cout<<endl;
+    // cout<<"After Done Backtracking: "<<endl;
+    // cout<<"size: "<<vah1.size()<<endl;
+    // for(int x:vah1)
+    //     cout<<x<<" "; cout<<endl;
 
     for(int i=0;i<n;i++){
         if( i!=c && !matrix[r][i] ){
@@ -241,10 +244,10 @@ bool forwardcheck(){
             insert_variable(i*n+c);
         }
     }
-    cout<<"After Restoring: "<<endl;
-    cout<<"size: "<<vah1.size()<<endl;
-    for(int x:vah1)
-        cout<<x<<" "; cout<<endl;
+    // cout<<"After Restoring: "<<endl;
+    // cout<<"size: "<<vah1.size()<<endl;
+    // for(int x:vah1)
+    //     cout<<x<<" "; cout<<endl;
     
     restore_variable(var); 
     return false; 
