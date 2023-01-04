@@ -37,19 +37,22 @@ bool goalcheck(){
 }
 
 bool cmp_vah1(int i,int j){
-    return domain_size[i]<domain_size[j];
+    return (domain_size[i]==domain_size[j])?i<j:domain_size[i]<domain_size[j];
 }
 bool cmp_vah2(int i,int j){
-    return degree[i]<degree[j];
+    return (degree[i]==degree[j])?i<j:degree[i]<degree[j];
 }
 bool cmp_vah3(int i,int j){
-    return ((domain_size[i]==domain_size[j]) ? (degree[i]<degree[j]) : (domain_size[i]<domain_size[j]));
+    return (domain_size[i]==domain_size[j] && degree[i]==degree[j]) 
+            ? i<j :
+            ((domain_size[i]==domain_size[j]) ? (degree[i]<degree[j]) : (domain_size[i]<domain_size[j])) ;
 }
 bool cmp_vah4(int i,int j){
-    return (domain_size[i]/degree[i])<(domain_size[j]/degree[j]) ;
+    return (domain_size[i]/degree[i]==domain_size[j]/degree[j]) ? i<j: (domain_size[i]/degree[i])<(domain_size[j]/degree[j]) ;
 }
 
-multiset<int, bool(*)(int,int)> vah1(cmp_vah1),vah2(cmp_vah2),vah3(cmp_vah3),vah4(cmp_vah4);
+set<int, bool(*)(int,int)> vah1(cmp_vah1);
+multiset<int, bool(*)(int,int)> vah2(cmp_vah2),vah3(cmp_vah3),vah4(cmp_vah4);
 vector<int> vah5; 
 
 int variable_heuristic; 
@@ -67,7 +70,9 @@ void insert_variable_vah1(int v){
     vah1.insert(v) ;
 }
 void erase_variable_vah1(int v){
-    vah1.erase(v) ;
+    auto it=vah1.find(v); 
+    if(it!=vah1.end())
+        vah1.erase(it);
 }
 
 int get_next_variable_vah2(){
@@ -81,7 +86,9 @@ void insert_variable_vah2(int v){
     vah2.insert(v) ;
 }
 void erase_variable_vah2(int v){
-    vah2.erase(v);
+    auto it=vah2.find(v);
+    if(it!=vah2.end())
+        vah2.erase(it);
 }
 
 int get_next_variable_vah3(){
@@ -95,7 +102,9 @@ void insert_variable_vah3(int v){
     vah3.insert(v);
 }
 void erase_variable_vah3(int v){
-    vah3.erase(v) ;
+    auto it=vah3.find(v);
+    if(it!=vah3.end())
+        vah3.erase(it) ;
 }
 
 int get_next_variable_vah4(){
@@ -109,7 +118,9 @@ void insert_variable_vah4(int v){
     vah4.insert(v);
 }
 void erase_variable_vah4(int v){
-    vah4.erase(v) ;
+    auto it=vah4.find(v);
+    if(it!=vah4.end())
+        vah4.erase(it) ;
 }
 
 int get_next_variable_vah5(){
@@ -130,10 +141,11 @@ int (*get_next_variable)();
 void (*insert_variable)(int);
 void (*erase_variable)(int);
 void (*restore_variable)(int);
+bool (*solver)(); 
 
 bool backtrack(){
     int var=get_next_variable();
-    if(var==-1) return true;
+    if(var==-1) return goalcheck();
 
     int r=var/n,c=var%n;
     
@@ -154,75 +166,111 @@ bool backtrack(){
 
 bool forwardcheck(){
     int var=get_next_variable();
-    if(var==-1) return true;
+    if(var==-1 ) return goalcheck();
 
     int r=var/n,c=var%n;
     
+    cout<<"var: "<<var<<endl;
+    cout<<"Start Backtracking: "<<endl;
+    cout<<"size: "<<vah1.size()<<endl;
+    for(int x: vah1)
+        cout<<x<<" "; cout<<endl;
+
+    for(int i=0;i<n;i++){
+        if( i!=c && !matrix[r][i] ){
+            erase_variable(r*n+i);
+            domain_size[r*n+i]--;
+            degree[r*n+i]--;
+        }
+        if( i!=r && !matrix[i][c] ){
+            erase_variable(i*n+c);
+            domain_size[i*n+c]--;
+            degree[i*n+c]--;
+        }
+    }
+    for(int i=0;i<n;i++){
+        if( i!=c && !matrix[r][i] && domain_size[r*n+i]>0 ){
+            insert_variable(r*n+i);
+        }
+        if( i!=r && !matrix[i][c] && domain_size[i*n+c]>0 ){
+            insert_variable(i*n+c);
+        }
+    }
+    
+    cout<<"Before Backtracking: "<<endl;
+    cout<<"size: "<<vah1.size()<<endl;
+    for(int x:vah1)
+        cout<<x<<" "; cout<<endl;
+
+
     for(int k=1;k<=n;k++){
         if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
         row[r][k]++;
         col[c][k]++;
-        for(int i=0;i<n;i++){
-            if( i != c && !matrix[r][i] ){
-                erase_variable(r*n+i);
-                domain_size[r*n+i]--;
-                degree[r*n+i]--;
-            }
-            if( i != r && !matrix[i][c] ){
-                erase_variable(i*n+c);
-                domain_size[i*n+c]--;
-                degree[i*n+c]--;
-            }
-        }
-        for(int i=0;i<n;i++){
-            if( i != c && !matrix[r][i] ){
-                insert_variable(r*n+i);
-            }
-            if( i != r && !matrix[i][c] ){
-                insert_variable(i*n+c);
-            }
-        }
-     
         bool res=forwardcheck();
         if(res) return true;
-
-        for(int i=0;i<n;i++){
-            if( i != c && !matrix[r][i] ){
-                erase_variable(r*n+i);
-                domain_size[r*n+i]++;
-                degree[r*n+i]++;
-            }
-            if( i != r && !matrix[i][c] ){
-                erase_variable(i*n+c);
-                domain_size[i*n+c]++;
-                degree[i*n+c]++;
-            }
-        }
-        for(int i=0;i<n;i++){
-            if( i != c && !matrix[r][i] ){
-                insert_variable(r*n+i);
-            }
-            if( i != r && !matrix[i][c] ){
-                insert_variable(i*n+c);
-            }
-        }
         row[r][k]--;
         col[c][k]--;
 
     }
-    restore_variable(var);
+    matrix[r][c]=0;
+
+    cout<<"After Done Backtracking: "<<endl;
+    cout<<"size: "<<vah1.size()<<endl;
+    for(int x:vah1)
+        cout<<x<<" "; cout<<endl;
+
+    for(int i=0;i<n;i++){
+        if( i!=c && !matrix[r][i] ){
+            erase_variable(r*n+i);
+            domain_size[r*n+i]++;
+            degree[r*n+i]++;
+        }
+        if( i!=r && !matrix[i][c] ){
+            erase_variable(i*n+c);
+            domain_size[i*n+c]++;
+            degree[i*n+c]++;
+        }
+    }
+    for(int i=0;i<n;i++){
+        if( i!=c && !matrix[r][i] && domain_size[r*n+i]>0 ){
+            insert_variable(r*n+i);
+        }
+        if( i!=r && !matrix[i][c] && domain_size[i*n+c]>0 ){
+            insert_variable(i*n+c);
+        }
+    }
+    cout<<"After Restoring: "<<endl;
+    cout<<"size: "<<vah1.size()<<endl;
+    for(int x:vah1)
+        cout<<x<<" "; cout<<endl;
+    
+    restore_variable(var); 
     return false; 
 }
 
 
-void runner(){
+void take_input(string filename){
+    fstream fs(filename,ios_base::in);
+    stringstream inputstream;
+    inputstream<<fs.rdbuf();
+    char c;
+    string input; 
+    while(inputstream>>c){
+        if(isdigit(c)){
+            input+=c;
+        }
+        else if(c==',')
+            input+=' ';
+        else if(c=='|')
+            input+='\n';
+    }
+    cout<<input<<endl;
 
-}
+    inputstream=stringstream(input);
 
-int main(){
-    ios_base::sync_with_stdio(false) ;
-    cin>>n;
+    inputstream>>n;
     // cout<<n<<endl;
     matrix=vector<vector<int>>(n,vector<int>(n));
     domain_size=vector<int>(n*n,0);
@@ -231,11 +279,58 @@ int main(){
     col=vector<vector<int>>(n,vector<int>(n+1,0));
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
-            cin>>matrix[i][j];
+            inputstream>>matrix[i][j];
         }
     }
+}
 
+int main(int argc,char **argv){
+    if(argc<4)
+        throw exception();
     
+    if( string(argv[1]) == "bt" ){
+        solver=backtrack;
+    }
+    else if( string(argv[1]) == "fc")
+        solver=forwardcheck;
+    else {
+
+    }
+    if( string(argv[2]) == "vah1" ){
+        insert_variable=insert_variable_vah1;
+        erase_variable=erase_variable_vah1;
+        restore_variable=insert_variable_vah1;
+        get_next_variable=get_next_variable_vah1;
+    }
+    else if( string(argv[2]) == "vah2" ){
+        insert_variable=insert_variable_vah2;
+        erase_variable=erase_variable_vah2;
+        restore_variable=insert_variable_vah2;
+        get_next_variable=get_next_variable_vah2;
+    }
+    else if( string(argv[2]) == "vah3" ){
+        insert_variable=insert_variable_vah3;
+        erase_variable=erase_variable_vah3;
+        restore_variable=insert_variable_vah3;
+        get_next_variable=get_next_variable_vah3;
+    }
+    else if( string(argv[2]) == "vah4" ){
+        insert_variable=insert_variable_vah4;
+        erase_variable=erase_variable_vah4;
+        restore_variable=insert_variable_vah4;
+        get_next_variable=get_next_variable_vah4;
+    }
+    else if( string(argv[2]) == "vah5" ){
+        insert_variable=insert_variable_vah5;
+        erase_variable=erase_variable_vah5;
+        restore_variable=restore_variable_vah5;
+        get_next_variable=get_next_variable_vah5;
+    }
+    else {
+        throw exception() ;
+    }
+
+    take_input(argv[3]); 
 
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -313,13 +408,19 @@ int main(){
     for(int x:vah5)
         cout<<x<<" "; cout<<endl;
     
-    get_next_variable=get_next_variable_vah1;
-    restore_variable=insert_variable_vah1;
-    insert_variable=insert_variable_vah1;
-    erase_variable=erase_variable_vah1;
-    bool found=forwardcheck();
-    cout<<"after forwardchecking: "<<endl;
-    cout<<(found?"result: true":"result: false")<<endl;
+    // get_next_variable=get_next_variable_vah1;
+    // restore_variable=insert_variable_vah1;
+    // insert_variable=insert_variable_vah1;
+    // erase_variable=erase_variable_vah1;
+    // bool found=backtrack();
+    // cout<<"after forwardchecking: "<<endl;
+    // cout<<(found?"result: true":"result: false")<<endl;
+    // cout<<(goalcheck()?"goal: true":"goal: false")<<endl;
+    // print_matrix(matrix);
+
+    bool found=solver();
     cout<<(goalcheck()?"goal: true":"goal: false")<<endl;
     print_matrix(matrix);
+
+
 }
