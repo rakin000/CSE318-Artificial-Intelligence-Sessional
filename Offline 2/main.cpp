@@ -3,7 +3,6 @@ using namespace std ;
 
 template<class T> 
 void print_matrix(vector<vector<T>> &mat){
-   
     for(int i=0;i<mat.size();i++){
         for(int j=0;j<mat[i].size();j++){
             // cout<<mat[i][j]<<" ";
@@ -11,7 +10,6 @@ void print_matrix(vector<vector<T>> &mat){
         }
         cout<<"\n";
     }
-    
 }
 
 int n; 
@@ -43,24 +41,24 @@ bool cmp_vah1(int i,int j){
     return (domain_size[i]==domain_size[j])?i<j:domain_size[i]<domain_size[j];
 }
 bool cmp_vah2(int i,int j){
-    return (degree[i]==degree[j])?i<j:degree[i]<degree[j];
+    return (degree[i]==degree[j])?i<j:degree[i]>degree[j];
 }
 bool cmp_vah3(int i,int j){
-    return (domain_size[i]==domain_size[j] && degree[i]==degree[j]) 
-            ? i<j :
-            ((domain_size[i]==domain_size[j]) ? (degree[i]<degree[j]) : (domain_size[i]<domain_size[j])) ;
+    return (domain_size[i]==domain_size[j])
+            ?
+            cmp_vah2(i,j)
+            :
+            (domain_size[i]<domain_size[j]);
 }
 bool cmp_vah4(int i,int j){
     return (domain_size[i]/degree[i]==domain_size[j]/degree[j]) ? i<j: (domain_size[i]/degree[i])<(domain_size[j]/degree[j]) ;
 }
 
 set<int, bool(*)(int,int)> vah1(cmp_vah1);
-multiset<int, bool(*)(int,int)> vah2(cmp_vah2),vah3(cmp_vah3),vah4(cmp_vah4);
+set<int, bool(*)(int,int)> vah2(cmp_vah2);
+set<int, bool(*)(int,int)> vah3(cmp_vah3);
+set<int, bool(*)(int,int)> vah4(cmp_vah4);
 vector<int> vah5; 
-
-int variable_heuristic; 
-
-enum {VAH1,VAH2,VAH3,VAH4,VAH5,VAH0};
 
 int get_next_variable_vah1(){
    if( vah1.empty() )
@@ -140,13 +138,17 @@ void erase_variable_vah5(int v){
 void insert_variable_vah5(int v){
 }
 
+
 int (*get_next_variable)();
 void (*insert_variable)(int);
 void (*erase_variable)(int);
 void (*restore_variable)(int);
 bool (*solver)(); 
+int64_t node_count,backtrack_count;
+double elapsed_time; 
 
 bool backtrack(){
+    node_count++;
     int var=get_next_variable();
     if(var==-1) return goalcheck();
 
@@ -164,10 +166,14 @@ bool backtrack(){
 
     }
     restore_variable(var);
+    
+    backtrack_count++;
+    
     return false; 
 }
 
 bool forwardcheck(){
+    node_count++;
     int var=get_next_variable();
     if(var==-1 ) return goalcheck();
 
@@ -248,7 +254,8 @@ bool forwardcheck(){
     // cout<<"size: "<<vah1.size()<<endl;
     // for(int x:vah1)
     //     cout<<x<<" "; cout<<endl;
-    
+    backtrack_count++; 
+
     restore_variable(var); 
     return false; 
 }
@@ -269,7 +276,7 @@ void take_input(string filename){
         else if(c=='|')
             input+='\n';
     }
-    cout<<input<<endl;
+    // cout<<input<<endl;
 
     inputstream=stringstream(input);
 
@@ -355,31 +362,22 @@ int main(int argc,char **argv){
         }
     }
 
-    cout<<"now n="<<n<<endl;
+    cout<<"Variable Size: "<<variables.size()<<endl;
+    for(int x: variables)
+        printf("%2d ",x); cout<<endl;
+    
     cout<<"Degree: "<<endl;
-    // degree ;
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
-            if( matrix[i][j]){
-                cout<<0<<" ";
-            }
-            else {
-                cout<<degree[i*n+j]<<" ";
-            }
+            printf("%4d ",degree[i*n+j]);
         }
         cout<<endl;
     }
-    // domain_size ;
-    cout<<"Now n="<<n<<endl;
-    cout<<"Domain Size: "<<endl;; 
+
+    cout<<"Domain Size: "<<endl ;
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
-            if( matrix[i][j]){
-                cout<<0<<" ";
-            }
-            else {
-                cout<<domain_size[i*n+j]<<" ";
-            }
+            printf("%4d ",domain_size[i*n+j]);
         }
         cout<<endl;
     }
@@ -394,36 +392,21 @@ int main(int argc,char **argv){
     vah5 = variables ;
     shuffle(vah5.begin(),vah5.end(),default_random_engine(3));
     
-    cout<<"variables size="<<variables.size()<<endl;
-    cout<<"VAH1, size="<<vah1.size()<<endl;
-    for(int x:vah1)
-        cout<<x<<" " ; cout<<endl;
-    cout<<"VAH2, size="<<vah2.size()<<endl; 
-    for(int x:vah2)
-        cout<<x<<" "; cout<<endl;
-    cout<<"VAH3, size="<<vah3.size()<<endl;
-    for(int x:vah3)
-        cout<<x<<" "; cout<<endl;
-    cout<<"VAH4, size="<<vah4.size()<<endl;
-    for(int x:vah4)
-        cout<<x<<" "; cout<<endl;
-    cout<<"VAH5, size="<<vah5.size()<<endl;
-    for(int x:vah5)
-        cout<<x<<" "; cout<<endl;
-    
-    // get_next_variable=get_next_variable_vah1;
-    // restore_variable=insert_variable_vah1;
-    // insert_variable=insert_variable_vah1;
-    // erase_variable=erase_variable_vah1;
-    // bool found=backtrack();
-    // cout<<"after forwardchecking: "<<endl;
-    // cout<<(found?"result: true":"result: false")<<endl;
-    // cout<<(goalcheck()?"goal: true":"goal: false")<<endl;
-    // print_matrix(matrix);
 
+    node_count=0;
+    backtrack_count=0;
+
+    auto start=chrono::high_resolution_clock::now();
     bool found=solver();
+    auto stop=chrono::high_resolution_clock::now();
+    elapsed_time=(stop-start)/chrono::milliseconds(1);
+
     cout<<(goalcheck()?"goal: true":"goal: false")<<endl;
     print_matrix(matrix);
 
+    cout<<"\n\n";
+    cout<<"Node Count = "<<node_count<<endl;
+    cout<<"Backtrack Count = "<<backtrack_count<<endl;
+    cout<<"Elapsed Time = "<<elapsed_time<<endl;
 
 }
