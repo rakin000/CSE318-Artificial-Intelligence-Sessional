@@ -143,13 +143,57 @@ void insert_variable_vah5(int v){
 }
 
 
+// least constraining value
+vector<int> get_value_ordering_least_constraining(int r,int c){
+    if( r<0 || r>=n || c<0 || c>=n ) throw exception();
+
+    vector<pair<int,int>> v;
+    int sum=0;
+    for(int k=1;k<=n;k++){
+        sum=0;
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                sum += (domain_size[r*n+i]-(!row[r][k] && !col[i][k]));
+            }
+            if( i!=r && !matrix[i][c] ){
+                sum += domain_size[i*n+c]-(!row[i][k] && !col[c][k]) ;
+            }
+        }
+        v.push_back(make_pair(sum,k));
+    }
+    sort(v.begin(),v.end());
+    vector<int> temp ;
+    for(int i=(int)v.size()-1;i>=0;i--){
+        temp.push_back(v[i].second);
+    }
+    return temp ;
+}
+// random value ordering 
+vector<int> get_value_ordering_random(int i,int j){
+    vector<int> temp ;
+    for(int k=1;k<=n;k++)
+        temp.push_back(k);
+    shuffle(temp.begin(),temp.end(),default_random_engine(5));
+    return temp ;
+}
+// lowest to highest 
+vector<int> get_value_ordering_increasing(int i,int j){
+    vector<int> temp ;
+    for(int k=1;k<=n;k++)
+        temp.push_back(k);
+    return temp ;
+}
+
 int (*get_next_variable)();
 void (*insert_variable)(int);
 void (*erase_variable)(int);
 void (*restore_variable)(int);
+vector<int> (*get_value_ordering)(int,int);
 bool (*solver)(); 
+
 int64_t node_count,backtrack_count;
 double elapsed_time; 
+
 
 bool backtrack(){
     node_count++;
@@ -158,7 +202,8 @@ bool backtrack(){
 
     int r=var/n,c=var%n;
     
-    for(int k=1;k<=n;k++){
+    // for(int k=1;k<=n;k++){
+    for(int k: get_value_ordering(r,c) ){   
         if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
         row[r][k]++;
@@ -183,7 +228,8 @@ bool forwardcheck(){
 
     int r=var/n,c=var%n;
     bool ok;
-    for(int k=1;k<=n;k++){
+    // for(int k=1;k<=n;k++){
+    for(int k: get_value_ordering(r,c) ){
         if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
 
@@ -355,21 +401,21 @@ int main(int argc,char **argv){
     for(int x: variables)
         printf("%2d ",x); cout<<endl;
     
-    cout<<"Degree: "<<endl;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            printf("%4d ",degree[i*n+j]);
-        }
-        cout<<endl;
-    }
+    // cout<<"Degree: "<<endl;
+    // for(int i=0;i<n;i++){
+    //     for(int j=0;j<n;j++){
+    //         printf("%4d ",degree[i*n+j]);
+    //     }
+    //     cout<<endl;
+    // }
 
-    cout<<"Domain Size: "<<endl ;
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            printf("%4d ",domain_size[i*n+j]);
-        }
-        cout<<endl;
-    }
+    // cout<<"Domain Size: "<<endl ;
+    // for(int i=0;i<n;i++){
+    //     for(int j=0;j<n;j++){
+    //         printf("%4d ",domain_size[i*n+j]);
+    //     }
+    //     cout<<endl;
+    // }
 
 
     for(int &y:variables){
@@ -386,6 +432,8 @@ int main(int argc,char **argv){
 
     node_count=0;
     backtrack_count=0;
+
+    get_value_ordering=get_value_ordering_least_constraining ;
 
     auto start=chrono::high_resolution_clock::now();
     bool found=solver();
