@@ -427,13 +427,13 @@ int main(int argc,char **argv){
     vah5 = variables ;
     shuffle(vah5.begin(),vah5.end(),default_random_engine(3));
     
-    for(int x: vah1) 
-        cout<<x<<" "; cout<<endl;
+    // for(int x: vah1) 
+    //     cout<<x<<" "; cout<<endl;
 
     node_count=0;
     backtrack_count=0;
 
-    get_value_ordering=get_value_ordering_least_constraining ;
+    get_value_ordering=get_value_ordering_random ;
 
     auto start=chrono::high_resolution_clock::now();
     bool found=solver();
