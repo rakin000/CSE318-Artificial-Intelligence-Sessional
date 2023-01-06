@@ -1,21 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std ;
 
-template<class T> 
-void print_matrix(vector<vector<T>> &mat){
-    for(int i=0;i<mat.size();i++){
-        for(int j=0;j<mat[i].size();j++){
-            // cout<<mat[i][j]<<" ";
-            printf("%4d ",mat[i][j]);
-        }
-        cout<<"\n";
-    }
-}
 
 int n; 
 vector<vector<int>> row,col,matrix,solved_matrix1,solved_matrix2; 
 vector<int> domain_size,degree;
 vector<int> variables,values;
+
+void print_matrix(bool print_degree_domain=false){
+    cout<<n<<endl;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            // cout<<mat[i][j]<<" ";
+            if( print_degree_domain) {
+                printf("%4d(%2d/%2d) ",matrix[i][j], domain_size[i*n+j], degree[i*n+j] );
+            }
+            else printf("%4d ",matrix[i][j]) ;
+        }
+        cout<<"\n";
+    }
+}
 
 bool goalcheck(){
     vector<vector<int>> row(n,vector<int>(n+1,0));
@@ -178,84 +182,68 @@ bool forwardcheck(){
     if(var==-1 ) return goalcheck();
 
     int r=var/n,c=var%n;
-    
-    // cout<<"var: "<<var<<endl;
-    // cout<<"Start Backtracking: "<<endl;
-    // cout<<"size: "<<vah1.size()<<endl;
-    // for(int x: vah1)
-    //     cout<<x<<" "; cout<<endl;
-
-    for(int i=0;i<n;i++){
-        if( i!=c && !matrix[r][i] ){
-            erase_variable(r*n+i);
-            domain_size[r*n+i]--;
-            degree[r*n+i]--;
-        }
-        if( i!=r && !matrix[i][c] ){
-            erase_variable(i*n+c);
-            domain_size[i*n+c]--;
-            degree[i*n+c]--;
-        }
-    }
-    for(int i=0;i<n;i++){
-        if( i!=c && !matrix[r][i]  ){
-            insert_variable(r*n+i);
-        }
-        if( i!=r && !matrix[i][c]){
-            insert_variable(i*n+c);
-        }
-    }
-    
-    // cout<<"Before Backtracking: "<<endl;
-    // cout<<"size: "<<vah1.size()<<endl;
-    // for(int x:vah1)
-    //     cout<<x<<" "; cout<<endl;
-
-
+    bool ok;
     for(int k=1;k<=n;k++){
         if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
+
+        int zero_domain_node_cnt=0;
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                erase_variable(r*n+i);
+                domain_size[r*n+i] -= (!row[r][k] && !col[i][k]) ;
+                degree[r*n+i]--;
+                zero_domain_node_cnt+=(domain_size[r*n+i]<=0);
+            }
+            if( i!=r && !matrix[i][c] ){
+                erase_variable(i*n+c);
+                domain_size[i*n+c] -= (!row[i][k] && !col[c][k]) ;
+                degree[i*n+c]--;
+                zero_domain_node_cnt+=(domain_size[i*n+c]<=0);
+            }
+        }
+        ok=!zero_domain_node_cnt;
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i]  ){
+                insert_variable(r*n+i);
+            }
+            if( i!=r && !matrix[i][c]){
+                insert_variable(i*n+c);
+            }
+        }
         row[r][k]++;
         col[c][k]++;
-        bool res=forwardcheck();
+        
+        bool res=ok && forwardcheck();
         if(res) return true;
+        
         row[r][k]--;
         col[c][k]--;
 
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                erase_variable(r*n+i);
+                domain_size[r*n+i] += (!row[r][k] && !col[i][k]);
+                degree[r*n+i]++;
+            }
+            if( i!=r && !matrix[i][c] ){
+                erase_variable(i*n+c);
+                domain_size[i*n+c] += (!row[i][k] && !col[c][k]);
+                degree[i*n+c]++;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                insert_variable(r*n+i);
+            }
+            if( i!=r && !matrix[i][c] ){
+                insert_variable(i*n+c);
+            }
+        }
     }
+failure:
     matrix[r][c]=0;
-
-    // cout<<"After Done Backtracking: "<<endl;
-    // cout<<"size: "<<vah1.size()<<endl;
-    // for(int x:vah1)
-    //     cout<<x<<" "; cout<<endl;
-
-    for(int i=0;i<n;i++){
-        if( i!=c && !matrix[r][i] ){
-            erase_variable(r*n+i);
-            domain_size[r*n+i]++;
-            degree[r*n+i]++;
-        }
-        if( i!=r && !matrix[i][c] ){
-            erase_variable(i*n+c);
-            domain_size[i*n+c]++;
-            degree[i*n+c]++;
-        }
-    }
-    for(int i=0;i<n;i++){
-        if( i!=c && !matrix[r][i] && domain_size[r*n+i]>0 ){
-            insert_variable(r*n+i);
-        }
-        if( i!=r && !matrix[i][c] && domain_size[i*n+c]>0 ){
-            insert_variable(i*n+c);
-        }
-    }
-    // cout<<"After Restoring: "<<endl;
-    // cout<<"size: "<<vah1.size()<<endl;
-    // for(int x:vah1)
-    //     cout<<x<<" "; cout<<endl;
     backtrack_count++; 
-
     restore_variable(var); 
     return false; 
 }
@@ -362,6 +350,7 @@ int main(int argc,char **argv){
         }
     }
 
+    print_matrix(true);
     cout<<"Variable Size: "<<variables.size()<<endl;
     for(int x: variables)
         printf("%2d ",x); cout<<endl;
@@ -392,6 +381,8 @@ int main(int argc,char **argv){
     vah5 = variables ;
     shuffle(vah5.begin(),vah5.end(),default_random_engine(3));
     
+    for(int x: vah1) 
+        cout<<x<<" "; cout<<endl;
 
     node_count=0;
     backtrack_count=0;
@@ -402,7 +393,7 @@ int main(int argc,char **argv){
     elapsed_time=(stop-start)/chrono::milliseconds(1);
 
     cout<<(goalcheck()?"goal: true":"goal: false")<<endl;
-    print_matrix(matrix);
+    print_matrix();
 
     cout<<"\n\n";
     cout<<"Node Count = "<<node_count<<endl;
