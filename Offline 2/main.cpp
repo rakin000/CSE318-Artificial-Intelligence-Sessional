@@ -55,7 +55,9 @@ bool cmp_vah3(int i,int j){
             (domain_size[i]<domain_size[j]);
 }
 bool cmp_vah4(int i,int j){
-    return (domain_size[i]/degree[i]==domain_size[j]/degree[j]) ? i<j: (domain_size[i]/degree[i])<(domain_size[j]/degree[j]) ;
+    double v1=double(domain_size[i])/double(degree[i]);
+    double v2=double(domain_size[j])/double(degree[j]);
+    return (v1==v2) ? i<j:v1<v2;
 }
 
 set<int, bool(*)(int,int)> vah1(cmp_vah1);
@@ -226,7 +228,60 @@ bool backtrack(){
 }
 
 bool backtrack2(){
-    return true; 
+    node_count++;
+    int var=get_next_variable();
+    if(var==-1 ) return goalcheck();
+
+    int r=var/n,c=var%n;
+    for(int k: get_value_ordering(r,c) ){
+        matrix[r][c]=k;
+
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                erase_variable(r*n+i);
+                degree[r*n+i]--;
+            }
+            if( i!=r && !matrix[i][c] ){
+                erase_variable(i*n+c);
+                degree[i*n+c]--;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i]  ){
+                insert_variable(r*n+i);
+            }
+            if( i!=r && !matrix[i][c]){
+                insert_variable(i*n+c);
+            }
+        }
+        
+        bool res=backtrack2();
+        if(res) return true;
+        
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                erase_variable(r*n+i);
+                degree[r*n+i]++;
+            }
+            if( i!=r && !matrix[i][c] ){
+                erase_variable(i*n+c);
+                degree[i*n+c]++;
+            }
+        }
+        for(int i=0;i<n;i++){
+            if( i!=c && !matrix[r][i] ){
+                insert_variable(r*n+i);
+            }
+            if( i!=r && !matrix[i][c] ){
+                insert_variable(i*n+c);
+            }
+        }
+    }
+failure:
+    matrix[r][c]=0;
+    backtrack_count++; 
+    restore_variable(var); 
+    return false;  
 }
 
 bool forwardcheck(){
