@@ -148,18 +148,22 @@ vector<int> get_value_ordering_least_constraining(int r,int c){
     if( r<0 || r>=n || c<0 || c>=n ) throw exception();
 
     vector<pair<int,int>> v;
-    int sum=0;
+    int sum=0,zero_domains=0,new_domain_size;
     for(int k=1;k<=n;k++){
         sum=0;
+        zero_domains=0;
         for(int i=0;i<n;i++){
             if( i!=c && !matrix[r][i] ){
-                sum += (domain_size[r*n+i]-(!row[r][k] && !col[i][k]));
-            }
+                new_domain_size= (domain_size[r*n+i]-(!row[r][k] && !col[i][k]));
+                sum += new_domain_size;
+                zero_domains += !new_domain_size;            }
             if( i!=r && !matrix[i][c] ){
+                new_domain_size=domain_size[i*n+c]-(!row[i][k] && !col[c][k]) ;
                 sum += domain_size[i*n+c]-(!row[i][k] && !col[c][k]) ;
+                zero_domains += !new_domain_size;
             }
         }
-        v.push_back(make_pair(sum,k));
+        if(!zero_domains) v.push_back(make_pair(sum,k));
     }
     sort(v.begin(),v.end());
     vector<int> temp ;
@@ -219,6 +223,10 @@ bool backtrack(){
     backtrack_count++;
     
     return false; 
+}
+
+bool backtrack2(){
+    return true; 
 }
 
 bool forwardcheck(){
