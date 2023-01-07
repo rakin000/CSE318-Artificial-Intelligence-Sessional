@@ -433,7 +433,7 @@ int main(int argc,char **argv){
     node_count=0;
     backtrack_count=0;
 
-    get_value_ordering=get_value_ordering_random ;
+    get_value_ordering=get_value_ordering_least_constraining;
 
     auto start=chrono::high_resolution_clock::now();
     bool found=solver();
