@@ -165,7 +165,8 @@ vector<int> get_value_ordering_least_constraining(int r,int c){
                 zero_domains += !new_domain_size;
             }
         }
-        if(!zero_domains) v.push_back(make_pair(sum,k));
+        // if(!zero_domains)
+            v.push_back(make_pair(sum,k));
     }
     sort(v.begin(),v.end());
     vector<int> temp ;
@@ -200,8 +201,7 @@ bool (*solver)();
 int64_t node_count,backtrack_count;
 double elapsed_time; 
 
-
-bool backtrack(){
+bool backtrack1(){
     node_count++;
     int var=get_next_variable();
     if(var==-1) return goalcheck();
@@ -214,7 +214,7 @@ bool backtrack(){
         matrix[r][c]=k;
         row[r][k]++;
         col[c][k]++;
-        bool res=backtrack();
+        bool res=backtrack1();
         if(res) return true;
         row[r][k]--;
         col[c][k]--;
@@ -227,44 +227,54 @@ bool backtrack(){
     return false; 
 }
 
-bool backtrack2(){
+bool backtrack(){
     node_count++;
     int var=get_next_variable();
     if(var==-1 ) return goalcheck();
 
     int r=var/n,c=var%n;
     for(int k: get_value_ordering(r,c) ){
+        if( (row[r][k]) || (col[c][k]) ) continue ;
         matrix[r][c]=k;
 
         for(int i=0;i<n;i++){
-            if( i!=c && !matrix[r][i] ){
+            if( !matrix[r][i] ){
                 erase_variable(r*n+i);
+                domain_size[r*n+i] -= (!row[r][k] && !col[i][k]) ;
                 degree[r*n+i]--;
             }
-            if( i!=r && !matrix[i][c] ){
+            if( !matrix[i][c] ){
                 erase_variable(i*n+c);
+                domain_size[i*n+c] -= (!row[i][k] && !col[c][k]) ;
                 degree[i*n+c]--;
             }
         }
         for(int i=0;i<n;i++){
-            if( i!=c && !matrix[r][i]  ){
+            if( !matrix[r][i]  ){
                 insert_variable(r*n+i);
             }
-            if( i!=r && !matrix[i][c]){
+            if( !matrix[i][c]){
                 insert_variable(i*n+c);
             }
         }
+        row[r][k]++;
+        col[c][k]++;
         
-        bool res=backtrack2();
+        bool res=backtrack();
         if(res) return true;
         
+        row[r][k]--;
+        col[c][k]--;
+
         for(int i=0;i<n;i++){
-            if( i!=c && !matrix[r][i] ){
+            if( !matrix[r][i] ){
                 erase_variable(r*n+i);
+                domain_size[r*n+i] += (!row[r][k] && !col[i][k]);
                 degree[r*n+i]++;
             }
-            if( i!=r && !matrix[i][c] ){
+            if( !matrix[i][c] ){
                 erase_variable(i*n+c);
+                domain_size[i*n+c] += (!row[i][k] && !col[c][k]);
                 degree[i*n+c]++;
             }
         }
@@ -281,7 +291,7 @@ failure:
     matrix[r][c]=0;
     backtrack_count++; 
     restore_variable(var); 
-    return false;  
+    return false; 
 }
 
 bool forwardcheck(){
@@ -394,50 +404,79 @@ void take_input(string filename){
 int main(int argc,char **argv){
     if(argc<4)
         throw exception();
-    
-    if( string(argv[1]) == "bt" ){
+    int argid=1;
+    if( string(argv[argid]) == "bt" ){
         solver=backtrack;
+        ++argid;
     }
-    else if( string(argv[1]) == "fc")
+    else if( string(argv[argid]) == "fc"){
         solver=forwardcheck;
-    else {
-
+        ++argid;
     }
-    if( string(argv[2]) == "vah1" ){
+    else if( string(argv[argid]) == "bt2"){
+        solver=backtrack1;
+        ++argid;
+    }
+    else {
+        throw exception();
+    }
+
+    if( string(argv[argid]) == "vah1" ){
         insert_variable=insert_variable_vah1;
         erase_variable=erase_variable_vah1;
         restore_variable=insert_variable_vah1;
         get_next_variable=get_next_variable_vah1;
+        ++argid;
     }
-    else if( string(argv[2]) == "vah2" ){
+    else if( string(argv[argid]) == "vah2" ){
         insert_variable=insert_variable_vah2;
         erase_variable=erase_variable_vah2;
         restore_variable=insert_variable_vah2;
         get_next_variable=get_next_variable_vah2;
+        ++argid;
     }
-    else if( string(argv[2]) == "vah3" ){
+    else if( string(argv[argid]) == "vah3" ){
         insert_variable=insert_variable_vah3;
         erase_variable=erase_variable_vah3;
         restore_variable=insert_variable_vah3;
         get_next_variable=get_next_variable_vah3;
+        ++argid;
     }
-    else if( string(argv[2]) == "vah4" ){
+    else if( string(argv[argid]) == "vah4" ){
         insert_variable=insert_variable_vah4;
         erase_variable=erase_variable_vah4;
         restore_variable=insert_variable_vah4;
         get_next_variable=get_next_variable_vah4;
+        ++argid;
     }
-    else if( string(argv[2]) == "vah5" ){
+    else if( string(argv[argid]) == "vah5" ){
         insert_variable=insert_variable_vah5;
         erase_variable=erase_variable_vah5;
         restore_variable=restore_variable_vah5;
         get_next_variable=get_next_variable_vah5;
+        argid++;
     }
     else {
         throw exception() ;
     }
 
-    take_input(argv[3]); 
+    if( string(argv[argid]) == "val_lc" ){
+        get_value_ordering=get_value_ordering_least_constraining;
+        ++argid;
+    }
+    else if( string(argv[argid]) == "val_rnd" ){
+        get_value_ordering=get_value_ordering_random;
+        ++argid;
+    }
+    else if( string(argv[argid]) == "val_inc" ){
+        get_value_ordering=get_value_ordering_increasing;
+        ++argid;
+    }
+    else {
+        get_value_ordering=get_value_ordering_least_constraining;
+    }
+
+    take_input(argv[argid]); 
 
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -496,7 +535,6 @@ int main(int argc,char **argv){
     node_count=0;
     backtrack_count=0;
 
-    get_value_ordering=get_value_ordering_least_constraining;
 
     auto start=chrono::high_resolution_clock::now();
     bool found=solver();
