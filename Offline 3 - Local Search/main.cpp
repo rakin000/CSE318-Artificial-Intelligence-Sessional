@@ -7,14 +7,13 @@ using namespace std;
 mt19937 mt_rand(time(nullptr)) ;
 
 
-int n;
+int n_courses;
 int n_student; 
 vector<int> course_student_count ;
 vector<vector<int>> course_adj_matrix, course_adj_list; 
 vector<int> degree,sat_degree;
 vector<int> color; 
 vector<bool> marked ;
-int penalty[] = {(int)1e9,16,8,4,2,1} ;
 
 bool cmp_dsat(int i,int j){
     return (sat_degree[i]==sat_degree[j]) ? (degree[i]==degree[j]?i<j:degree[i]>degree[j]) : (sat_degree[i]>sat_degree[j]) ;
@@ -80,19 +79,25 @@ bool dfs_check_consistency(int s){
     return res; 
 }
 bool check(){
-    marked=vector<bool>(n+1,0) ;
+    marked=vector<bool>(n_courses+1,0) ;
     bool res=1; 
-    for(int u=1;u<=n&&res;u++){
+    for(int u=1;u<=n_courses&&res;u++){
         if( !marked[u] ){
             res &= dfs_check_consistency(u) ;
         }
     }
     return res; 
 }
-int64_t get_penalty(int diff){
-    if( diff > 5 ) return 0; 
-    return pow(2,5-diff);
+
+int64_t get_penalty_linear(int diff) {
+    if (diff <= 5) return 2*(5-diff);
+    return 0 ;
 }
+int64_t get_penalty_exponential(int diff){
+    if( diff > 5 ) return 0; 
+    return 1<<(5-diff); 
+}
+int64_t (*get_penalty)(int); 
 
 void take_input(string stu_file,string crs_file){
 #ifdef DEBUG 
@@ -113,7 +118,7 @@ void take_input(string stu_file,string crs_file){
     }
     crs_fs.close() ;
 
-    n=course_student_count.size()-1;
+    n_courses=course_student_count.size()-1;
 #ifdef DEBUG 
     cout<<"course_count: "<<course_student_count.size()<<endl;
 #endif
@@ -162,7 +167,7 @@ void take_input(string stu_file,string crs_file){
 }
 
 void init() {
-    for(int i=1;i<=n;i++){
+    for(int i=1;i<=n_courses;i++){
         va_dsat.insert(i) ;
         va_random.pb(i);
         va_largest_degree.pb(i);
@@ -232,9 +237,9 @@ int64_t dfs_calculate_penalty(int s){
     return pen; 
 }
 int64_t calculate_penalty(){
-    marked=vector<bool>(n+1,0) ;
+    marked=vector<bool>(n_courses+1,0) ;
     int64_t tot_pen = 0;
-    for(int u=1;u<=n;u++){
+    for(int u=1;u<=n_courses;u++){
         if( !marked[u] ){
             tot_pen+=dfs_calculate_penalty(u) ;
         }
@@ -242,15 +247,11 @@ int64_t calculate_penalty(){
     return tot_pen/2ll;
 }
 
-map<tuple<int,int>,bool> chain_map ;
-
 void dfs_get_kempe_chain(int s, int color1, int color2, vector<int> &chain){
+    if( color1==color2 ) return;  
     if( color[s] != color1 && color[s] != color2 ) return ;
-
     chain.pb(s) ;
     marked[s] = 1; 
-
-    // chain_map[make_tuple(s,(color[s]==color1?color2:color1))] = 1; 
 
     for(int v: course_adj_list[s]){
         if(!marked[v] && color[v] != color[s] ){
@@ -258,13 +259,21 @@ void dfs_get_kempe_chain(int s, int color1, int color2, vector<int> &chain){
         }
     } 
 }
+vector<int> get_kempe_chain(int s,int color1, int color2 ){
+    vector<int> chain; 
+    marked=vector<bool>(n_courses+1,0) ;
+    dfs_get_kempe_chain(s,color1,color2,chain);
+    return chain ;
+}
 
 void swap_colors(int u,int color1, int color2 ){
     if( color[u] == color1 ) color[u] =color2; 
     else if( color[u] == color2 ) color[u] =color1; 
 }
 int64_t kempe_chain_penalty_reduction(vector<int> &chain, int color1, int color2 ){
-    marked=vector<bool>(n+1,0) ;
+    if( chain.empty() ) return 0 ;
+
+    marked=vector<bool>(n_courses+1,0) ;
     int64_t initial_penalty=0; 
     int64_t after_penalty=0 ; 
     for(int v: chain){
@@ -289,21 +298,19 @@ void kempe_chain_swap_colors(vector<int> &chain, int color1, int color2 ){
 }
 void kempe_chain_interchange(int max_iteration=1000){
     int u=-1,v=-1; 
+    int color1,color2; 
     int64_t possible_reduction ;
     do{
         do{
-            u=mt_rand()%n+1;
+            u=mt_rand()%n_courses+1;
         } while( !course_adj_list[u].size() ) ;
-        v=mt_rand()%course_adj_list[u].size() ;
-        v=course_adj_list[u][v] ;
+        color2=mt_rand()%total_colors; 
 
-        vector<int> chain; 
-        marked=vector<bool>(n+1,0) ;
-        dfs_get_kempe_chain(u,color[u],color[v],chain) ;
-
-        possible_reduction=kempe_chain_penalty_reduction(chain,color[u],color[v]);
+        vector<int> kempe_chain=get_kempe_chain(u,color[u],color2); 
+        
+        possible_reduction=kempe_chain_penalty_reduction(kempe_chain,color[u],color2);
         if( possible_reduction > 0 ) 
-            kempe_chain_swap_colors(chain,color[u],color[v]) ;
+            kempe_chain_swap_colors(kempe_chain,color[u],color2) ;
         max_iteration--;
     } while( possible_reduction > 0 || max_iteration>0 ) ;
 }
@@ -313,23 +320,20 @@ void pair_swap_operator(int max_iteration=1000){
     int64_t possible_reduction ;
     do{
         do{
-            u=mt_rand()%n+1;
-            v=mt_rand()%n+1;
+            u=mt_rand()%n_courses+1;
+            v=mt_rand()%n_courses+1;
         } while( u==v || course_adj_matrix[u][v] || color[u] == color[v] )  ;
 
         vector<int> chain1,chain2 ;
-
-        marked=vector<bool>(n+1,0) ;
-        dfs_get_kempe_chain(u,color[u],color[v],chain1);
+        chain1=get_kempe_chain(u,color[u],color[v]) ;
         if( marked[v] ) continue ;
-        marked=vector<bool>(n+1,0) ;
-        dfs_get_kempe_chain(v,color[v],color[u],chain2);
+        chain2=get_kempe_chain(v,color[v],color[u]) ; 
 
         possible_reduction=kempe_chain_penalty_reduction(chain1,color[u],color[v])
                           +kempe_chain_penalty_reduction(chain2,color[v],color[u]) ;
         if( possible_reduction>0) {
             int col1=color[u];
-            int col2=color[v] ;
+            int col2=color[v];
             kempe_chain_swap_colors(chain1,col1,col2) ;
             kempe_chain_swap_colors(chain2,col1,col2) ;
         }
@@ -339,8 +343,18 @@ void pair_swap_operator(int max_iteration=1000){
 
 
 int main(int argc,char **argv) {
-    if(argc < 2 ) throw exception() ;
+    if(argc < 2 ) {
+        cout<<"usage: solver [heuristic] [penalty_strategy] [max_iteration] [filename]\n" ;
+        cout<<" heuristic: \t ld=largest_degree \n"; 
+        cout<<"            \t le=largest_enrollment \n"; 
+        cout<<"            \t dsat=dsatur \n"; 
+        cout<<"            \t rnd=random \n"; 
+        cout<<" penalty strategy : \t lin=linear strategy \n"; 
+        cout<<"                    \t exp=exponential strategy  \n"; 
+        return -1; 
+    }
     int argid=1;
+    int mx_iteration; 
     if( string(argv[argid]) == "ld" ){
         get_next_var=get_next_var_largest_degree;
         heuristic=LARGEST_DEGREE;
@@ -356,13 +370,29 @@ int main(int argc,char **argv) {
         heuristic=RANDOM;
         argid++ ;
     }
-    // else if( string(argv[argid]) == "dsat" ) {
     else {   
         get_next_var=get_next_var_dsat ;
         heuristic=DSAT ;
         if( argc > 2 ) argid++ ;
     }
-    // take_input(string(argv[1]),string(argv[2]))  ;
+
+    if( string(argv[argid]) == "lin"){
+        get_penalty=get_penalty_linear;
+        argid++;
+    }
+    else if( string(argv[argid])== "exp" ){
+        get_penalty=get_penalty_exponential;
+        argid++;
+    }
+    else {
+        get_penalty=get_penalty_exponential;
+    }
+
+    if( isdigit(argv[argid][0]) ){
+        mx_iteration=atoi(argv[argid++]);
+    }
+    else mx_iteration=1000 ;
+
     string filename=string(argv[argid]) ;
     take_input(filename+".stu",filename+".crs")  ;
 
@@ -394,9 +424,9 @@ int main(int argc,char **argv) {
     double avg_penalty;
 
     cout<<"coloring: "<<(check()?"true":"false")<<endl;
-    cout<<"total timeslots: "<<total_colors<<endl;
-    for(int i=1;i<=n;i++)   
-        cout<<i<<" "<<color[i]<<endl; 
+    cout<<"total timeslots: "<<total_colors+1<<endl;
+    // for(int i=1;i<=n_courses;i++)   
+    //     cout<<i<<" "<<color[i]<<endl; 
 
     tot_penalty=calculate_penalty() ;
     cout<<"tot_penalty: "<<tot_penalty<<endl;
@@ -404,7 +434,7 @@ int main(int argc,char **argv) {
     cout<<"student_count: " <<n_student<<endl;
     cout<<"avg_penalty : "<<avg_penalty<<endl;
 
-    kempe_chain_interchange(10000);
+    kempe_chain_interchange(mx_iteration);
     cout<<"coloring: "<<(check()?"true":"false")<<endl;
     cout<<"After kempe chain interchange: \n";
     tot_penalty=calculate_penalty() ;
@@ -413,7 +443,7 @@ int main(int argc,char **argv) {
     cout<<"student_count: " <<n_student<<endl;
     cout<<"avg_penalty : "<<avg_penalty<<endl;
 
-    pair_swap_operator(10000);
+    pair_swap_operator(mx_iteration);
     cout<<"coloring: "<<(check()?"true":"false")<<endl;
     cout<<"After pair swap operator: \n";
     tot_penalty=calculate_penalty() ;
