@@ -6,14 +6,14 @@ student_count: 18419
 avg_penalty : 11.2811
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 81855
+tot_penalty: 82355
 student_count: 18419
-avg_penalty : 4.44405
+avg_penalty : 4.4712
 coloring: true
 After pair swap operator: 
-tot_penalty: 79361
+tot_penalty: 79885
 student_count: 18419
-avg_penalty : 4.30865
+avg_penalty : 4.3371
 
 ============================================================================
 
@@ -25,14 +25,14 @@ student_count: 18419
 avg_penalty : 11.2811
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 81772
+tot_penalty: 81676
 student_count: 18419
-avg_penalty : 4.43955
+avg_penalty : 4.43433
 coloring: true
 After pair swap operator: 
-tot_penalty: 79559
+tot_penalty: 79690
 student_count: 18419
-avg_penalty : 4.3194
+avg_penalty : 4.32651
 
 ============================================================================
 
@@ -44,14 +44,14 @@ student_count: 16926
 avg_penalty : 13.7219
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 102134
+tot_penalty: 97377
 student_count: 16926
-avg_penalty : 6.03415
+avg_penalty : 5.7531
 coloring: true
 After pair swap operator: 
-tot_penalty: 99820
+tot_penalty: 94800
 student_count: 16926
-avg_penalty : 5.89744
+avg_penalty : 5.60085
 
 ============================================================================
 
@@ -63,94 +63,14 @@ student_count: 16926
 avg_penalty : 13.7219
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 100327
+tot_penalty: 97635
 student_count: 16926
-avg_penalty : 5.92739
+avg_penalty : 5.76834
 coloring: true
 After pair swap operator: 
-tot_penalty: 97794
+tot_penalty: 94969
 student_count: 16926
-avg_penalty : 5.77774
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/ear-f-83 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 86016
-student_count: 1125
-avg_penalty : 76.4587
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 41590
-student_count: 1125
-avg_penalty : 36.9689
-coloring: true
-After pair swap operator: 
-tot_penalty: 41276
-student_count: 1125
-avg_penalty : 36.6898
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/ear-f-83 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 86016
-student_count: 1125
-avg_penalty : 76.4587
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 40332
-student_count: 1125
-avg_penalty : 35.8507
-coloring: true
-After pair swap operator: 
-tot_penalty: 39434
-student_count: 1125
-avg_penalty : 35.0524
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 94788
-student_count: 2823
-avg_penalty : 33.577
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 25675
-student_count: 2823
-avg_penalty : 9.09493
-coloring: true
-After pair swap operator: 
-tot_penalty: 25675
-student_count: 2823
-avg_penalty : 9.09493
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 94788
-student_count: 2823
-avg_penalty : 33.577
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 25818
-student_count: 2823
-avg_penalty : 9.14559
-coloring: true
-After pair swap operator: 
-tot_penalty: 25818
-student_count: 2823
-avg_penalty : 9.14559
+avg_penalty : 5.61084
 
 ============================================================================
 
@@ -162,14 +82,14 @@ student_count: 5349
 avg_penalty : 53.9635
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 76813
+tot_penalty: 73321
 student_count: 5349
-avg_penalty : 14.3603
+avg_penalty : 13.7074
 coloring: true
 After pair swap operator: 
-tot_penalty: 73124
+tot_penalty: 72336
 student_count: 5349
-avg_penalty : 13.6706
+avg_penalty : 13.5233
 
 ============================================================================
 
@@ -181,166 +101,14 @@ student_count: 5349
 avg_penalty : 53.9635
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 73002
+tot_penalty: 75077
 student_count: 5349
-avg_penalty : 13.6478
+avg_penalty : 14.0357
 coloring: true
 After pair swap operator: 
-tot_penalty: 71694
+tot_penalty: 73753
 student_count: 5349
-avg_penalty : 13.4033
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/lse-f-91 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 85901
-student_count: 2726
-avg_penalty : 31.5117
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 27536
-student_count: 2726
-avg_penalty : 10.1012
-coloring: true
-After pair swap operator: 
-tot_penalty: 26955
-student_count: 2726
-avg_penalty : 9.88811
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/lse-f-91 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 85901
-student_count: 2726
-avg_penalty : 31.5117
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 29563
-student_count: 2726
-avg_penalty : 10.8448
-coloring: true
-After pair swap operator: 
-tot_penalty: 28380
-student_count: 2726
-avg_penalty : 10.4109
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-coloring: true
-total timeslots: 39
-tot_penalty: 619655
-student_count: 30032
-avg_penalty : 20.6332
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 235081
-student_count: 30032
-avg_penalty : 7.82768
-coloring: true
-After pair swap operator: 
-tot_penalty: 220875
-student_count: 30032
-avg_penalty : 7.35466
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-coloring: true
-total timeslots: 39
-tot_penalty: 619655
-student_count: 30032
-avg_penalty : 20.6332
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 234631
-student_count: 30032
-avg_penalty : 7.8127
-coloring: true
-After pair swap operator: 
-tot_penalty: 223548
-student_count: 30032
-avg_penalty : 7.44366
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 444934
-student_count: 11483
-avg_penalty : 38.7472
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 100143
-student_count: 11483
-avg_penalty : 8.72098
-coloring: true
-After pair swap operator: 
-tot_penalty: 96366
-student_count: 11483
-avg_penalty : 8.39206
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 444934
-student_count: 11483
-avg_penalty : 38.7472
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 97863
-student_count: 11483
-avg_penalty : 8.52242
-coloring: true
-After pair swap operator: 
-tot_penalty: 95066
-student_count: 11483
-avg_penalty : 8.27885
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 123389
-student_count: 611
-avg_penalty : 201.946
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 103816
-student_count: 611
-avg_penalty : 169.912
-coloring: true
-After pair swap operator: 
-tot_penalty: 96102
-student_count: 611
-avg_penalty : 157.286
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 123389
-student_count: 611
-avg_penalty : 201.946
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 103925
-student_count: 611
-avg_penalty : 170.09
-coloring: true
-After pair swap operator: 
-tot_penalty: 96570
-student_count: 611
-avg_penalty : 158.052
+avg_penalty : 13.7882
 
 ============================================================================
 
@@ -352,14 +120,14 @@ student_count: 4362
 avg_penalty : 16.4924
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 42648
+tot_penalty: 43597
 student_count: 4362
-avg_penalty : 9.77717
+avg_penalty : 9.99473
 coloring: true
 After pair swap operator: 
-tot_penalty: 42217
+tot_penalty: 43445
 student_count: 4362
-avg_penalty : 9.67836
+avg_penalty : 9.95988
 
 ============================================================================
 
@@ -371,90 +139,14 @@ student_count: 4362
 avg_penalty : 16.4924
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 43624
+tot_penalty: 44908
 student_count: 4362
-avg_penalty : 10.0009
+avg_penalty : 10.2953
 coloring: true
 After pair swap operator: 
-tot_penalty: 43232
+tot_penalty: 44600
 student_count: 4362
-avg_penalty : 9.91105
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-coloring: true
-total timeslots: 35
-tot_penalty: 212897
-student_count: 21266
-avg_penalty : 10.0111
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 86486
-student_count: 21266
-avg_penalty : 4.06687
-coloring: true
-After pair swap operator: 
-tot_penalty: 84711
-student_count: 21266
-avg_penalty : 3.9834
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-coloring: true
-total timeslots: 35
-tot_penalty: 212897
-student_count: 21266
-avg_penalty : 10.0111
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 84036
-student_count: 21266
-avg_penalty : 3.95166
-coloring: true
-After pair swap operator: 
-tot_penalty: 82706
-student_count: 21266
-avg_penalty : 3.88912
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 11
-tot_penalty: 165213
-student_count: 2750
-avg_penalty : 60.0775
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 70803
-student_count: 2750
-avg_penalty : 25.7465
-coloring: true
-After pair swap operator: 
-tot_penalty: 58280
-student_count: 2750
-avg_penalty : 21.1927
-
-============================================================================
-
-running: "./solver ld exp 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 11
-tot_penalty: 165213
-student_count: 2750
-avg_penalty : 60.0775
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 65619
-student_count: 2750
-avg_penalty : 23.8615
-coloring: true
-After pair swap operator: 
-tot_penalty: 61669
-student_count: 2750
-avg_penalty : 22.4251
+avg_penalty : 10.2247
 
 ============================================================================
 
@@ -466,14 +158,14 @@ student_count: 941
 avg_penalty : 63.2487
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 30103
+tot_penalty: 30878
 student_count: 941
-avg_penalty : 31.9904
+avg_penalty : 32.814
 coloring: true
 After pair swap operator: 
-tot_penalty: 29826
+tot_penalty: 29846
 student_count: 941
-avg_penalty : 31.6961
+avg_penalty : 31.7173
 
 ============================================================================
 
@@ -485,14 +177,14 @@ student_count: 941
 avg_penalty : 63.2487
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 30303
+tot_penalty: 30814
 student_count: 941
-avg_penalty : 32.203
+avg_penalty : 32.746
 coloring: true
 After pair swap operator: 
-tot_penalty: 29992
+tot_penalty: 30510
 student_count: 941
-avg_penalty : 31.8725
+avg_penalty : 32.423
 
 ============================================================================
 
@@ -504,14 +196,14 @@ student_count: 18419
 avg_penalty : 7.12905
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 55744
+tot_penalty: 54300
 student_count: 18419
-avg_penalty : 3.02644
+avg_penalty : 2.94804
 coloring: true
 After pair swap operator: 
-tot_penalty: 54900
+tot_penalty: 53370
 student_count: 18419
-avg_penalty : 2.98062
+avg_penalty : 2.89755
 
 ============================================================================
 
@@ -523,14 +215,14 @@ student_count: 18419
 avg_penalty : 7.12905
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 53098
+tot_penalty: 53456
 student_count: 18419
-avg_penalty : 2.88278
+avg_penalty : 2.90222
 coloring: true
 After pair swap operator: 
-tot_penalty: 52424
+tot_penalty: 52110
 student_count: 18419
-avg_penalty : 2.84619
+avg_penalty : 2.82914
 
 ============================================================================
 
@@ -542,14 +234,14 @@ student_count: 16926
 avg_penalty : 8.87664
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 65198
+tot_penalty: 64658
 student_count: 16926
-avg_penalty : 3.85194
+avg_penalty : 3.82004
 coloring: true
 After pair swap operator: 
-tot_penalty: 63918
+tot_penalty: 63444
 student_count: 16926
-avg_penalty : 3.77632
+avg_penalty : 3.74832
 
 ============================================================================
 
@@ -561,94 +253,14 @@ student_count: 16926
 avg_penalty : 8.87664
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 63914
+tot_penalty: 64522
 student_count: 16926
-avg_penalty : 3.77608
+avg_penalty : 3.81201
 coloring: true
 After pair swap operator: 
-tot_penalty: 62354
+tot_penalty: 62652
 student_count: 16926
-avg_penalty : 3.68392
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/ear-f-83 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 55014
-student_count: 1125
-avg_penalty : 48.9013
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 27686
-student_count: 1125
-avg_penalty : 24.6098
-coloring: true
-After pair swap operator: 
-tot_penalty: 27580
-student_count: 1125
-avg_penalty : 24.5156
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/ear-f-83 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 55014
-student_count: 1125
-avg_penalty : 48.9013
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 27282
-student_count: 1125
-avg_penalty : 24.2507
-coloring: true
-After pair swap operator: 
-tot_penalty: 27176
-student_count: 1125
-avg_penalty : 24.1564
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 59454
-student_count: 2823
-avg_penalty : 21.0606
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 16390
-student_count: 2823
-avg_penalty : 5.80588
-coloring: true
-After pair swap operator: 
-tot_penalty: 16390
-student_count: 2823
-avg_penalty : 5.80588
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 59454
-student_count: 2823
-avg_penalty : 21.0606
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 17686
-student_count: 2823
-avg_penalty : 6.26497
-coloring: true
-After pair swap operator: 
-tot_penalty: 17686
-student_count: 2823
-avg_penalty : 6.26497
+avg_penalty : 3.70152
 
 ============================================================================
 
@@ -660,14 +272,14 @@ student_count: 5349
 avg_penalty : 33.9432
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 55340
+tot_penalty: 50126
 student_count: 5349
-avg_penalty : 10.3459
+avg_penalty : 9.3711
 coloring: true
 After pair swap operator: 
-tot_penalty: 48460
+tot_penalty: 47754
 student_count: 5349
-avg_penalty : 9.05964
+avg_penalty : 8.92765
 
 ============================================================================
 
@@ -679,166 +291,14 @@ student_count: 5349
 avg_penalty : 33.9432
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 47964
+tot_penalty: 51830
 student_count: 5349
-avg_penalty : 8.96691
+avg_penalty : 9.68966
 coloring: true
 After pair swap operator: 
-tot_penalty: 46456
+tot_penalty: 47724
 student_count: 5349
-avg_penalty : 8.68499
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/lse-f-91 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 53734
-student_count: 2726
-avg_penalty : 19.7117
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 19168
-student_count: 2726
-avg_penalty : 7.03155
-coloring: true
-After pair swap operator: 
-tot_penalty: 18858
-student_count: 2726
-avg_penalty : 6.91783
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/lse-f-91 >> results.txt" 
-coloring: true
-total timeslots: 20
-tot_penalty: 53734
-student_count: 2726
-avg_penalty : 19.7117
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 19148
-student_count: 2726
-avg_penalty : 7.02421
-coloring: true
-After pair swap operator: 
-tot_penalty: 18358
-student_count: 2726
-avg_penalty : 6.73441
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-coloring: true
-total timeslots: 39
-tot_penalty: 389426
-student_count: 30032
-avg_penalty : 12.967
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 152414
-student_count: 30032
-avg_penalty : 5.07505
-coloring: true
-After pair swap operator: 
-tot_penalty: 145500
-student_count: 30032
-avg_penalty : 4.84483
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-coloring: true
-total timeslots: 39
-tot_penalty: 389426
-student_count: 30032
-avg_penalty : 12.967
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 151716
-student_count: 30032
-avg_penalty : 5.05181
-coloring: true
-After pair swap operator: 
-tot_penalty: 145978
-student_count: 30032
-avg_penalty : 4.86075
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 280376
-student_count: 11483
-avg_penalty : 24.4166
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 68736
-student_count: 11483
-avg_penalty : 5.98589
-coloring: true
-After pair swap operator: 
-tot_penalty: 65258
-student_count: 11483
-avg_penalty : 5.68301
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 25
-tot_penalty: 280376
-student_count: 11483
-avg_penalty : 24.4166
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 69510
-student_count: 11483
-avg_penalty : 6.0533
-coloring: true
-After pair swap operator: 
-tot_penalty: 66306
-student_count: 11483
-avg_penalty : 5.77428
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 77578
-student_count: 611
-avg_penalty : 126.969
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 65528
-student_count: 611
-avg_penalty : 107.247
-coloring: true
-After pair swap operator: 
-tot_penalty: 60652
-student_count: 611
-avg_penalty : 99.2668
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 77578
-student_count: 611
-avg_penalty : 126.969
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 65528
-student_count: 611
-avg_penalty : 107.247
-coloring: true
-After pair swap operator: 
-tot_penalty: 60652
-student_count: 611
-avg_penalty : 99.2668
+avg_penalty : 8.92204
 
 ============================================================================
 
@@ -850,14 +310,14 @@ student_count: 4362
 avg_penalty : 10.5039
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 28550
+tot_penalty: 28900
 student_count: 4362
-avg_penalty : 6.54516
+avg_penalty : 6.6254
 coloring: true
 After pair swap operator: 
-tot_penalty: 28436
+tot_penalty: 28766
 student_count: 4362
-avg_penalty : 6.51903
+avg_penalty : 6.59468
 
 ============================================================================
 
@@ -869,90 +329,14 @@ student_count: 4362
 avg_penalty : 10.5039
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 28376
+tot_penalty: 28992
 student_count: 4362
-avg_penalty : 6.50527
+avg_penalty : 6.64649
 coloring: true
 After pair swap operator: 
-tot_penalty: 28072
+tot_penalty: 28946
 student_count: 4362
-avg_penalty : 6.43558
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-coloring: true
-total timeslots: 35
-tot_penalty: 131532
-student_count: 21266
-avg_penalty : 6.18508
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 57152
-student_count: 21266
-avg_penalty : 2.68748
-coloring: true
-After pair swap operator: 
-tot_penalty: 55932
-student_count: 21266
-avg_penalty : 2.63011
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-coloring: true
-total timeslots: 35
-tot_penalty: 131532
-student_count: 21266
-avg_penalty : 6.18508
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 55664
-student_count: 21266
-avg_penalty : 2.61751
-coloring: true
-After pair swap operator: 
-tot_penalty: 54660
-student_count: 21266
-avg_penalty : 2.5703
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 11
-tot_penalty: 102542
-student_count: 2750
-avg_penalty : 37.288
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 45570
-student_count: 2750
-avg_penalty : 16.5709
-coloring: true
-After pair swap operator: 
-tot_penalty: 43574
-student_count: 2750
-avg_penalty : 15.8451
-
-============================================================================
-
-running: "./solver ld lin 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 11
-tot_penalty: 102542
-student_count: 2750
-avg_penalty : 37.288
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 48422
-student_count: 2750
-avg_penalty : 17.608
-coloring: true
-After pair swap operator: 
-tot_penalty: 43482
-student_count: 2750
-avg_penalty : 15.8116
+avg_penalty : 6.63595
 
 ============================================================================
 
@@ -964,14 +348,14 @@ student_count: 941
 avg_penalty : 40.1063
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 21054
+tot_penalty: 20204
 student_count: 941
-avg_penalty : 22.3741
+avg_penalty : 21.4708
 coloring: true
 After pair swap operator: 
-tot_penalty: 20982
+tot_penalty: 19894
 student_count: 941
-avg_penalty : 22.2976
+avg_penalty : 21.1413
 
 ============================================================================
 
@@ -983,14 +367,14 @@ student_count: 941
 avg_penalty : 40.1063
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 20734
+tot_penalty: 20526
 student_count: 941
-avg_penalty : 22.034
+avg_penalty : 21.813
 coloring: true
 After pair swap operator: 
-tot_penalty: 20662
+tot_penalty: 20474
 student_count: 941
-avg_penalty : 21.9575
+avg_penalty : 21.7577
 
 ============================================================================
 
@@ -1002,14 +386,14 @@ student_count: 18419
 avg_penalty : 7.82621
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 50289
+tot_penalty: 51385
 student_count: 18419
-avg_penalty : 2.73028
+avg_penalty : 2.78978
 coloring: true
 After pair swap operator: 
-tot_penalty: 46252
+tot_penalty: 49197
 student_count: 18419
-avg_penalty : 2.5111
+avg_penalty : 2.67099
 
 ============================================================================
 
@@ -1021,14 +405,14 @@ student_count: 18419
 avg_penalty : 7.82621
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 49390
+tot_penalty: 49522
 student_count: 18419
-avg_penalty : 2.68147
+avg_penalty : 2.68864
 coloring: true
 After pair swap operator: 
-tot_penalty: 48160
+tot_penalty: 47078
 student_count: 18419
-avg_penalty : 2.61469
+avg_penalty : 2.55595
 
 ============================================================================
 
@@ -1040,14 +424,14 @@ student_count: 16926
 avg_penalty : 9.09299
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 68764
+tot_penalty: 64785
 student_count: 16926
-avg_penalty : 4.06263
+avg_penalty : 3.82754
 coloring: true
 After pair swap operator: 
-tot_penalty: 66426
+tot_penalty: 62144
 student_count: 16926
-avg_penalty : 3.92449
+avg_penalty : 3.67151
 
 ============================================================================
 
@@ -1059,94 +443,14 @@ student_count: 16926
 avg_penalty : 9.09299
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 64312
+tot_penalty: 65254
 student_count: 16926
-avg_penalty : 3.7996
+avg_penalty : 3.85525
 coloring: true
 After pair swap operator: 
-tot_penalty: 61806
+tot_penalty: 62586
 student_count: 16926
-avg_penalty : 3.65154
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/ear-f-83 >> results.txt" 
-coloring: true
-total timeslots: 30
-tot_penalty: 64697
-student_count: 1125
-avg_penalty : 57.5084
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 28841
-student_count: 1125
-avg_penalty : 25.6364
-coloring: true
-After pair swap operator: 
-tot_penalty: 27954
-student_count: 1125
-avg_penalty : 24.848
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/ear-f-83 >> results.txt" 
-coloring: true
-total timeslots: 30
-tot_penalty: 64697
-student_count: 1125
-avg_penalty : 57.5084
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 30364
-student_count: 1125
-avg_penalty : 26.9902
-coloring: true
-After pair swap operator: 
-tot_penalty: 29265
-student_count: 1125
-avg_penalty : 26.0133
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 58739
-student_count: 2823
-avg_penalty : 20.8073
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 19318
-student_count: 2823
-avg_penalty : 6.84307
-coloring: true
-After pair swap operator: 
-tot_penalty: 19025
-student_count: 2823
-avg_penalty : 6.73928
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 58739
-student_count: 2823
-avg_penalty : 20.8073
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 18543
-student_count: 2823
-avg_penalty : 6.56854
-coloring: true
-After pair swap operator: 
-tot_penalty: 18543
-student_count: 2823
-avg_penalty : 6.56854
+avg_penalty : 3.69762
 
 ============================================================================
 
@@ -1158,14 +462,14 @@ student_count: 5349
 avg_penalty : 31.968
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 56412
+tot_penalty: 55083
 student_count: 5349
-avg_penalty : 10.5463
+avg_penalty : 10.2978
 coloring: true
 After pair swap operator: 
-tot_penalty: 52520
+tot_penalty: 53172
 student_count: 5349
-avg_penalty : 9.81866
+avg_penalty : 9.94055
 
 ============================================================================
 
@@ -1177,166 +481,14 @@ student_count: 5349
 avg_penalty : 31.968
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 53192
+tot_penalty: 53738
 student_count: 5349
-avg_penalty : 9.94429
+avg_penalty : 10.0464
 coloring: true
 After pair swap operator: 
-tot_penalty: 50618
+tot_penalty: 51261
 student_count: 5349
-avg_penalty : 9.46308
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/lse-f-91 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 60007
-student_count: 2726
-avg_penalty : 22.0128
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 21262
-student_count: 2726
-avg_penalty : 7.79971
-coloring: true
-After pair swap operator: 
-tot_penalty: 20794
-student_count: 2726
-avg_penalty : 7.62803
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/lse-f-91 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 60007
-student_count: 2726
-avg_penalty : 22.0128
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 21721
-student_count: 2726
-avg_penalty : 7.96809
-coloring: true
-After pair swap operator: 
-tot_penalty: 21086
-student_count: 2726
-avg_penalty : 7.73514
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-coloring: true
-total timeslots: 56
-tot_penalty: 404998
-student_count: 30032
-avg_penalty : 13.4855
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 147141
-student_count: 30032
-avg_penalty : 4.89947
-coloring: true
-After pair swap operator: 
-tot_penalty: 133353
-student_count: 30032
-avg_penalty : 4.44036
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-coloring: true
-total timeslots: 56
-tot_penalty: 404998
-student_count: 30032
-avg_penalty : 13.4855
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 145346
-student_count: 30032
-avg_penalty : 4.8397
-coloring: true
-After pair swap operator: 
-tot_penalty: 135826
-student_count: 30032
-avg_penalty : 4.52271
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 289107
-student_count: 11483
-avg_penalty : 25.177
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 76636
-student_count: 11483
-avg_penalty : 6.67387
-coloring: true
-After pair swap operator: 
-tot_penalty: 70954
-student_count: 11483
-avg_penalty : 6.17905
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 289107
-student_count: 11483
-avg_penalty : 25.177
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 74600
-student_count: 11483
-avg_penalty : 6.49656
-coloring: true
-After pair swap operator: 
-tot_penalty: 70025
-student_count: 11483
-avg_penalty : 6.09815
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 114772
-student_count: 611
-avg_penalty : 187.843
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 94328
-student_count: 611
-avg_penalty : 154.383
-coloring: true
-After pair swap operator: 
-tot_penalty: 86379
-student_count: 611
-avg_penalty : 141.373
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 114772
-student_count: 611
-avg_penalty : 187.843
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 94328
-student_count: 611
-avg_penalty : 154.383
-coloring: true
-After pair swap operator: 
-tot_penalty: 86379
-student_count: 611
-avg_penalty : 141.373
+avg_penalty : 9.58329
 
 ============================================================================
 
@@ -1348,14 +500,14 @@ student_count: 4362
 avg_penalty : 12.6937
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 30255
+tot_penalty: 28784
 student_count: 4362
-avg_penalty : 6.93604
+avg_penalty : 6.59881
 coloring: true
 After pair swap operator: 
-tot_penalty: 29350
+tot_penalty: 28316
 student_count: 4362
-avg_penalty : 6.72856
+avg_penalty : 6.49152
 
 ============================================================================
 
@@ -1367,90 +519,14 @@ student_count: 4362
 avg_penalty : 12.6937
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 29983
+tot_penalty: 29711
 student_count: 4362
-avg_penalty : 6.87368
+avg_penalty : 6.81133
 coloring: true
 After pair swap operator: 
-tot_penalty: 29233
+tot_penalty: 28768
 student_count: 4362
-avg_penalty : 6.70174
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-coloring: true
-total timeslots: 46
-tot_penalty: 133889
-student_count: 21266
-avg_penalty : 6.29592
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 56309
-student_count: 21266
-avg_penalty : 2.64784
-coloring: true
-After pair swap operator: 
-tot_penalty: 53163
-student_count: 21266
-avg_penalty : 2.49991
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-coloring: true
-total timeslots: 46
-tot_penalty: 133889
-student_count: 21266
-avg_penalty : 6.29592
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 56758
-student_count: 21266
-avg_penalty : 2.66896
-coloring: true
-After pair swap operator: 
-tot_penalty: 55159
-student_count: 21266
-avg_penalty : 2.59376
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 12
-tot_penalty: 133232
-student_count: 2750
-avg_penalty : 48.448
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 53124
-student_count: 2750
-avg_penalty : 19.3178
-coloring: true
-After pair swap operator: 
-tot_penalty: 50450
-student_count: 2750
-avg_penalty : 18.3455
-
-============================================================================
-
-running: "./solver le exp 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 12
-tot_penalty: 133232
-student_count: 2750
-avg_penalty : 48.448
-coloring: true
-After kempe chain interchange: 
-tot_penalty: 51724
-student_count: 2750
-avg_penalty : 18.8087
-coloring: true
-After pair swap operator: 
-tot_penalty: 51177
-student_count: 2750
-avg_penalty : 18.6098
+avg_penalty : 6.59514
 
 ============================================================================
 
@@ -1462,14 +538,14 @@ student_count: 941
 avg_penalty : 51.8874
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 25231
+tot_penalty: 24572
 student_count: 941
-avg_penalty : 26.813
+avg_penalty : 26.1126
 coloring: true
 After pair swap operator: 
-tot_penalty: 24841
+tot_penalty: 24544
 student_count: 941
-avg_penalty : 26.3985
+avg_penalty : 26.0829
 
 ============================================================================
 
@@ -1481,14 +557,14 @@ student_count: 941
 avg_penalty : 51.8874
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 25399
+tot_penalty: 24644
 student_count: 941
-avg_penalty : 26.9915
+avg_penalty : 26.1892
 coloring: true
 After pair swap operator: 
-tot_penalty: 25380
+tot_penalty: 24170
 student_count: 941
-avg_penalty : 26.9713
+avg_penalty : 25.6854
 
 ============================================================================
 
@@ -1500,14 +576,14 @@ student_count: 18419
 avg_penalty : 5.00179
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 32728
+tot_penalty: 34308
 student_count: 18419
-avg_penalty : 1.77686
+avg_penalty : 1.86264
 coloring: true
 After pair swap operator: 
-tot_penalty: 30690
+tot_penalty: 32784
 student_count: 18419
-avg_penalty : 1.66621
+avg_penalty : 1.7799
 
 ============================================================================
 
@@ -1519,9 +595,14 @@ student_count: 18419
 avg_penalty : 5.00179
 coloring: true
 After kempe chain interchange: 
-tot_penalty: 33840
+tot_penalty: 33406
 student_count: 18419
-avg_penalty : 1.83723
+avg_penalty : 1.81367
+coloring: true
+After pair swap operator: 
+tot_penalty: 31064
+student_count: 18419
+avg_penalty : 1.68652
 
 ============================================================================
 
@@ -1531,6 +612,16 @@ total timeslots: 48
 tot_penalty: 98760
 student_count: 16926
 avg_penalty : 5.83481
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 43194
+student_count: 16926
+avg_penalty : 2.55193
+coloring: true
+After pair swap operator: 
+tot_penalty: 41148
+student_count: 16926
+avg_penalty : 2.43105
 
 ============================================================================
 
@@ -1540,46 +631,16 @@ total timeslots: 48
 tot_penalty: 98760
 student_count: 16926
 avg_penalty : 5.83481
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/ear-f-83 >> results.txt" 
 coloring: true
-total timeslots: 30
-tot_penalty: 41446
-student_count: 1125
-avg_penalty : 36.8409
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/ear-f-83 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 42094
+student_count: 16926
+avg_penalty : 2.48694
 coloring: true
-total timeslots: 30
-tot_penalty: 41446
-student_count: 1125
-avg_penalty : 36.8409
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 39464
-student_count: 2823
-avg_penalty : 13.9795
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 39464
-student_count: 2823
-avg_penalty : 13.9795
+After pair swap operator: 
+tot_penalty: 40232
+student_count: 16926
+avg_penalty : 2.37693
 
 ============================================================================
 
@@ -1589,6 +650,16 @@ total timeslots: 25
 tot_penalty: 111396
 student_count: 5349
 avg_penalty : 20.8256
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 37478
+student_count: 5349
+avg_penalty : 7.00654
+coloring: true
+After pair swap operator: 
+tot_penalty: 35902
+student_count: 5349
+avg_penalty : 6.71191
 
 ============================================================================
 
@@ -1598,68 +669,16 @@ total timeslots: 25
 tot_penalty: 111396
 student_count: 5349
 avg_penalty : 20.8256
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/lse-f-91 >> results.txt" 
 coloring: true
-total timeslots: 23
-tot_penalty: 38578
-student_count: 2726
-avg_penalty : 14.1519
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/lse-f-91 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 38598
+student_count: 5349
+avg_penalty : 7.21593
 coloring: true
-total timeslots: 23
-tot_penalty: 38578
-student_count: 2726
-avg_penalty : 14.1519
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 183628
-student_count: 11483
-avg_penalty : 15.9913
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 183628
-student_count: 11483
-avg_penalty : 15.9913
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 73280
-student_count: 611
-avg_penalty : 119.935
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 73280
-student_count: 611
-avg_penalty : 119.935
+After pair swap operator: 
+tot_penalty: 34950
+student_count: 5349
+avg_penalty : 6.53393
 
 ============================================================================
 
@@ -1669,6 +688,16 @@ total timeslots: 28
 tot_penalty: 34598
 student_count: 4362
 avg_penalty : 7.93168
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 19448
+student_count: 4362
+avg_penalty : 4.45851
+coloring: true
+After pair swap operator: 
+tot_penalty: 19276
+student_count: 4362
+avg_penalty : 4.41907
 
 ============================================================================
 
@@ -1678,32 +707,16 @@ total timeslots: 28
 tot_penalty: 34598
 student_count: 4362
 avg_penalty : 7.93168
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/ute-s-92 >> results.txt" 
 coloring: true
-total timeslots: 12
-tot_penalty: 82194
-student_count: 2750
-avg_penalty : 29.8887
-
-============================================================================
-
-running: "./solver le lin 10000 ./Toronto/ute-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 19348
+student_count: 4362
+avg_penalty : 4.43558
 coloring: true
-total timeslots: 12
-tot_penalty: 82194
-student_count: 2750
-avg_penalty : 29.8887
+After pair swap operator: 
+tot_penalty: 19032
+student_count: 4362
+avg_penalty : 4.36314
 
 ============================================================================
 
@@ -1713,6 +726,16 @@ total timeslots: 27
 tot_penalty: 31140
 student_count: 941
 avg_penalty : 33.0925
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 16736
+student_count: 941
+avg_penalty : 17.7853
+coloring: true
+After pair swap operator: 
+tot_penalty: 16698
+student_count: 941
+avg_penalty : 17.745
 
 ============================================================================
 
@@ -1722,66 +745,92 @@ total timeslots: 27
 tot_penalty: 31140
 student_count: 941
 avg_penalty : 33.0925
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 17064
+student_count: 941
+avg_penalty : 18.1339
+coloring: true
+After pair swap operator: 
+tot_penalty: 16728
+student_count: 941
+avg_penalty : 17.7768
 
 ============================================================================
 
 running: "./solver rnd exp 10000 ./Toronto/car-f-92 >> results.txt" 
 coloring: true
 total timeslots: 47
+tot_penalty: 144151
+student_count: 18419
+avg_penalty : 7.82621
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 50819
+student_count: 18419
+avg_penalty : 2.75905
+coloring: true
+After pair swap operator: 
+tot_penalty: 47797
+student_count: 18419
+avg_penalty : 2.59498
 
 ============================================================================
 
 running: "./solver rnd exp 10000 ./Toronto/car-f-92 >> results.txt" 
 coloring: true
 total timeslots: 47
+tot_penalty: 144151
+student_count: 18419
+avg_penalty : 7.82621
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 51676
+student_count: 18419
+avg_penalty : 2.80558
+coloring: true
+After pair swap operator: 
+tot_penalty: 48281
+student_count: 18419
+avg_penalty : 2.62126
 
 ============================================================================
 
 running: "./solver rnd exp 10000 ./Toronto/car-s-91 >> results.txt" 
+coloring: true
+total timeslots: 48
+tot_penalty: 153908
+student_count: 16926
+avg_penalty : 9.09299
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 66743
+student_count: 16926
+avg_penalty : 3.94322
+coloring: true
+After pair swap operator: 
+tot_penalty: 64071
+student_count: 16926
+avg_penalty : 3.78536
 
 ============================================================================
 
 running: "./solver rnd exp 10000 ./Toronto/car-s-91 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/ear-f-83 >> results.txt" 
 coloring: true
-total timeslots: 30
-tot_penalty: 64697
-student_count: 1125
-avg_penalty : 57.5084
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/ear-f-83 >> results.txt" 
+total timeslots: 48
+tot_penalty: 153908
+student_count: 16926
+avg_penalty : 9.09299
 coloring: true
-total timeslots: 30
-tot_penalty: 64697
-student_count: 1125
-avg_penalty : 57.5084
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/hec-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 68357
+student_count: 16926
+avg_penalty : 4.03858
 coloring: true
-total timeslots: 23
-tot_penalty: 58739
-student_count: 2823
-avg_penalty : 20.8073
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 58739
-student_count: 2823
-avg_penalty : 20.8073
+After pair swap operator: 
+tot_penalty: 63981
+student_count: 16926
+avg_penalty : 3.78004
 
 ============================================================================
 
@@ -1791,6 +840,16 @@ total timeslots: 25
 tot_penalty: 170997
 student_count: 5349
 avg_penalty : 31.968
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 53010
+student_count: 5349
+avg_penalty : 9.91026
+coloring: true
+After pair swap operator: 
+tot_penalty: 47811
+student_count: 5349
+avg_penalty : 8.93831
 
 ============================================================================
 
@@ -1800,68 +859,16 @@ total timeslots: 25
 tot_penalty: 170997
 student_count: 5349
 avg_penalty : 31.968
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/lse-f-91 >> results.txt" 
 coloring: true
-total timeslots: 23
-tot_penalty: 60007
-student_count: 2726
-avg_penalty : 22.0128
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/lse-f-91 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 60437
+student_count: 5349
+avg_penalty : 11.2987
 coloring: true
-total timeslots: 23
-tot_penalty: 60007
-student_count: 2726
-avg_penalty : 22.0128
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 289107
-student_count: 11483
-avg_penalty : 25.177
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 289107
-student_count: 11483
-avg_penalty : 25.177
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 114772
-student_count: 611
-avg_penalty : 187.843
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 114772
-student_count: 611
-avg_penalty : 187.843
+After pair swap operator: 
+tot_penalty: 55620
+student_count: 5349
+avg_penalty : 10.3982
 
 ============================================================================
 
@@ -1871,6 +878,16 @@ total timeslots: 28
 tot_penalty: 55370
 student_count: 4362
 avg_penalty : 12.6937
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 29746
+student_count: 4362
+avg_penalty : 6.81935
+coloring: true
+After pair swap operator: 
+tot_penalty: 28930
+student_count: 4362
+avg_penalty : 6.63228
 
 ============================================================================
 
@@ -1880,37 +897,16 @@ total timeslots: 28
 tot_penalty: 55370
 student_count: 4362
 avg_penalty : 12.6937
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/uta-s-92 >> results.txt" 
 coloring: true
-total timeslots: 46
-tot_penalty: 133889
-student_count: 21266
-avg_penalty : 6.29592
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/ute-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 29935
+student_count: 4362
+avg_penalty : 6.86268
 coloring: true
-total timeslots: 12
-tot_penalty: 133232
-student_count: 2750
-avg_penalty : 48.448
-
-============================================================================
-
-running: "./solver rnd exp 10000 ./Toronto/ute-s-92 >> results.txt" 
-coloring: true
-total timeslots: 12
-tot_penalty: 133232
-student_count: 2750
-avg_penalty : 48.448
+After pair swap operator: 
+tot_penalty: 29405
+student_count: 4362
+avg_penalty : 6.74117
 
 ============================================================================
 
@@ -1920,6 +916,16 @@ total timeslots: 27
 tot_penalty: 48826
 student_count: 941
 avg_penalty : 51.8874
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 25327
+student_count: 941
+avg_penalty : 26.915
+coloring: true
+After pair swap operator: 
+tot_penalty: 25131
+student_count: 941
+avg_penalty : 26.7067
 
 ============================================================================
 
@@ -1929,64 +935,92 @@ total timeslots: 27
 tot_penalty: 48826
 student_count: 941
 avg_penalty : 51.8874
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 25040
+student_count: 941
+avg_penalty : 26.61
+coloring: true
+After pair swap operator: 
+tot_penalty: 24744
+student_count: 941
+avg_penalty : 26.2954
 
 ============================================================================
 
 running: "./solver rnd lin 10000 ./Toronto/car-f-92 >> results.txt" 
 coloring: true
 total timeslots: 47
+tot_penalty: 92128
+student_count: 18419
+avg_penalty : 5.00179
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 32766
+student_count: 18419
+avg_penalty : 1.77892
+coloring: true
+After pair swap operator: 
+tot_penalty: 31428
+student_count: 18419
+avg_penalty : 1.70628
 
 ============================================================================
 
 running: "./solver rnd lin 10000 ./Toronto/car-f-92 >> results.txt" 
+coloring: true
+total timeslots: 47
+tot_penalty: 92128
+student_count: 18419
+avg_penalty : 5.00179
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 32648
+student_count: 18419
+avg_penalty : 1.77252
+coloring: true
+After pair swap operator: 
+tot_penalty: 31360
+student_count: 18419
+avg_penalty : 1.70259
 
 ============================================================================
 
 running: "./solver rnd lin 10000 ./Toronto/car-s-91 >> results.txt" 
+coloring: true
+total timeslots: 48
+tot_penalty: 98760
+student_count: 16926
+avg_penalty : 5.83481
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 42792
+student_count: 16926
+avg_penalty : 2.52818
+coloring: true
+After pair swap operator: 
+tot_penalty: 40724
+student_count: 16926
+avg_penalty : 2.406
 
 ============================================================================
 
 running: "./solver rnd lin 10000 ./Toronto/car-s-91 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/ear-f-83 >> results.txt" 
 coloring: true
-total timeslots: 30
-tot_penalty: 41446
-student_count: 1125
-avg_penalty : 36.8409
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/ear-f-83 >> results.txt" 
+total timeslots: 48
+tot_penalty: 98760
+student_count: 16926
+avg_penalty : 5.83481
 coloring: true
-total timeslots: 30
-tot_penalty: 41446
-student_count: 1125
-avg_penalty : 36.8409
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/hec-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 43644
+student_count: 16926
+avg_penalty : 2.57852
 coloring: true
-total timeslots: 23
-tot_penalty: 39464
-student_count: 2823
-avg_penalty : 13.9795
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 23
-tot_penalty: 39464
-student_count: 2823
-avg_penalty : 13.9795
+After pair swap operator: 
+tot_penalty: 41752
+student_count: 16926
+avg_penalty : 2.46674
 
 ============================================================================
 
@@ -1996,6 +1030,16 @@ total timeslots: 25
 tot_penalty: 111396
 student_count: 5349
 avg_penalty : 20.8256
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 35748
+student_count: 5349
+avg_penalty : 6.68312
+coloring: true
+After pair swap operator: 
+tot_penalty: 34546
+student_count: 5349
+avg_penalty : 6.4584
 
 ============================================================================
 
@@ -2005,68 +1049,16 @@ total timeslots: 25
 tot_penalty: 111396
 student_count: 5349
 avg_penalty : 20.8256
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/lse-f-91 >> results.txt" 
 coloring: true
-total timeslots: 23
-tot_penalty: 38578
-student_count: 2726
-avg_penalty : 14.1519
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/lse-f-91 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 36530
+student_count: 5349
+avg_penalty : 6.82931
 coloring: true
-total timeslots: 23
-tot_penalty: 38578
-student_count: 2726
-avg_penalty : 14.1519
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 183628
-student_count: 11483
-avg_penalty : 15.9913
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 29
-tot_penalty: 183628
-student_count: 11483
-avg_penalty : 15.9913
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 73280
-student_count: 611
-avg_penalty : 119.935
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 14
-tot_penalty: 73280
-student_count: 611
-avg_penalty : 119.935
+After pair swap operator: 
+tot_penalty: 34986
+student_count: 5349
+avg_penalty : 6.54066
 
 ============================================================================
 
@@ -2076,6 +1068,16 @@ total timeslots: 28
 tot_penalty: 34598
 student_count: 4362
 avg_penalty : 7.93168
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 19164
+student_count: 4362
+avg_penalty : 4.3934
+coloring: true
+After pair swap operator: 
+tot_penalty: 18278
+student_count: 4362
+avg_penalty : 4.19028
 
 ============================================================================
 
@@ -2085,32 +1087,16 @@ total timeslots: 28
 tot_penalty: 34598
 student_count: 4362
 avg_penalty : 7.93168
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/ute-s-92 >> results.txt" 
 coloring: true
-total timeslots: 12
-tot_penalty: 82194
-student_count: 2750
-avg_penalty : 29.8887
-
-============================================================================
-
-running: "./solver rnd lin 10000 ./Toronto/ute-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 19162
+student_count: 4362
+avg_penalty : 4.39294
 coloring: true
-total timeslots: 12
-tot_penalty: 82194
-student_count: 2750
-avg_penalty : 29.8887
+After pair swap operator: 
+tot_penalty: 18992
+student_count: 4362
+avg_penalty : 4.35397
 
 ============================================================================
 
@@ -2120,6 +1106,16 @@ total timeslots: 27
 tot_penalty: 31140
 student_count: 941
 avg_penalty : 33.0925
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 18016
+student_count: 941
+avg_penalty : 19.1456
+coloring: true
+After pair swap operator: 
+tot_penalty: 17792
+student_count: 941
+avg_penalty : 18.9075
 
 ============================================================================
 
@@ -2129,62 +1125,92 @@ total timeslots: 27
 tot_penalty: 31140
 student_count: 941
 avg_penalty : 33.0925
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 17010
+student_count: 941
+avg_penalty : 18.0765
+coloring: true
+After pair swap operator: 
+tot_penalty: 16996
+student_count: 941
+avg_penalty : 18.0616
 
 ============================================================================
 
 running: "./solver dsat exp 10000 ./Toronto/car-f-92 >> results.txt" 
+coloring: true
+total timeslots: 32
+tot_penalty: 193952
+student_count: 18419
+avg_penalty : 10.53
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 91218
+student_count: 18419
+avg_penalty : 4.95239
+coloring: true
+After pair swap operator: 
+tot_penalty: 89998
+student_count: 18419
+avg_penalty : 4.88615
 
 ============================================================================
 
 running: "./solver dsat exp 10000 ./Toronto/car-f-92 >> results.txt" 
+coloring: true
+total timeslots: 32
+tot_penalty: 193952
+student_count: 18419
+avg_penalty : 10.53
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 91782
+student_count: 18419
+avg_penalty : 4.98301
+coloring: true
+After pair swap operator: 
+tot_penalty: 89945
+student_count: 18419
+avg_penalty : 4.88327
 
 ============================================================================
 
 running: "./solver dsat exp 10000 ./Toronto/car-s-91 >> results.txt" 
+coloring: true
+total timeslots: 36
+tot_penalty: 220046
+student_count: 16926
+avg_penalty : 13.0005
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 99562
+student_count: 16926
+avg_penalty : 5.88219
+coloring: true
+After pair swap operator: 
+tot_penalty: 96256
+student_count: 16926
+avg_penalty : 5.68687
 
 ============================================================================
 
 running: "./solver dsat exp 10000 ./Toronto/car-s-91 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/ear-f-83 >> results.txt" 
 coloring: true
-total timeslots: 25
-tot_penalty: 79231
-student_count: 1125
-avg_penalty : 70.4276
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/ear-f-83 >> results.txt" 
+total timeslots: 36
+tot_penalty: 220046
+student_count: 16926
+avg_penalty : 13.0005
 coloring: true
-total timeslots: 25
-tot_penalty: 79231
-student_count: 1125
-avg_penalty : 70.4276
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/hec-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 99044
+student_count: 16926
+avg_penalty : 5.85159
 coloring: true
-total timeslots: 19
-tot_penalty: 95268
-student_count: 2823
-avg_penalty : 33.7471
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 19
-tot_penalty: 95268
-student_count: 2823
-avg_penalty : 33.7471
+After pair swap operator: 
+tot_penalty: 96761
+student_count: 16926
+avg_penalty : 5.71671
 
 ============================================================================
 
@@ -2194,6 +1220,16 @@ total timeslots: 22
 tot_penalty: 284501
 student_count: 5349
 avg_penalty : 53.1877
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 69454
+student_count: 5349
+avg_penalty : 12.9845
+coloring: true
+After pair swap operator: 
+tot_penalty: 64297
+student_count: 5349
+avg_penalty : 12.0204
 
 ============================================================================
 
@@ -2203,58 +1239,16 @@ total timeslots: 22
 tot_penalty: 284501
 student_count: 5349
 avg_penalty : 53.1877
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/lse-f-91 >> results.txt" 
 coloring: true
-total timeslots: 17
-tot_penalty: 81111
-student_count: 2726
-avg_penalty : 29.7546
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/lse-f-91 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 65301
+student_count: 5349
+avg_penalty : 12.2081
 coloring: true
-total timeslots: 17
-tot_penalty: 81111
-student_count: 2726
-avg_penalty : 29.7546
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/rye-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 123389
-student_count: 611
-avg_penalty : 201.946
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 123389
-student_count: 611
-avg_penalty : 201.946
+After pair swap operator: 
+tot_penalty: 64492
+student_count: 5349
+avg_penalty : 12.0568
 
 ============================================================================
 
@@ -2264,6 +1258,16 @@ total timeslots: 21
 tot_penalty: 75452
 student_count: 4362
 avg_penalty : 17.2976
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 46889
+student_count: 4362
+avg_penalty : 10.7494
+coloring: true
+After pair swap operator: 
+tot_penalty: 46217
+student_count: 4362
+avg_penalty : 10.5954
 
 ============================================================================
 
@@ -2273,32 +1277,16 @@ total timeslots: 21
 tot_penalty: 75452
 student_count: 4362
 avg_penalty : 17.2976
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/ute-s-92 >> results.txt" 
 coloring: true
-total timeslots: 11
-tot_penalty: 165257
-student_count: 2750
-avg_penalty : 60.0935
-
-============================================================================
-
-running: "./solver dsat exp 10000 ./Toronto/ute-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 46562
+student_count: 4362
+avg_penalty : 10.6745
 coloring: true
-total timeslots: 11
-tot_penalty: 165257
-student_count: 2750
-avg_penalty : 60.0935
+After pair swap operator: 
+tot_penalty: 46374
+student_count: 4362
+avg_penalty : 10.6314
 
 ============================================================================
 
@@ -2308,6 +1296,16 @@ total timeslots: 23
 tot_penalty: 55912
 student_count: 941
 avg_penalty : 59.4176
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 33422
+student_count: 941
+avg_penalty : 35.5175
+coloring: true
+After pair swap operator: 
+tot_penalty: 32183
+student_count: 941
+avg_penalty : 34.2009
 
 ============================================================================
 
@@ -2317,62 +1315,92 @@ total timeslots: 23
 tot_penalty: 55912
 student_count: 941
 avg_penalty : 59.4176
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 32474
+student_count: 941
+avg_penalty : 34.5101
+coloring: true
+After pair swap operator: 
+tot_penalty: 31807
+student_count: 941
+avg_penalty : 33.8013
 
 ============================================================================
 
 running: "./solver dsat lin 10000 ./Toronto/car-f-92 >> results.txt" 
+coloring: true
+total timeslots: 32
+tot_penalty: 121604
+student_count: 18419
+avg_penalty : 6.6021
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 60106
+student_count: 18419
+avg_penalty : 3.26326
+coloring: true
+After pair swap operator: 
+tot_penalty: 58202
+student_count: 18419
+avg_penalty : 3.15989
 
 ============================================================================
 
 running: "./solver dsat lin 10000 ./Toronto/car-f-92 >> results.txt" 
+coloring: true
+total timeslots: 32
+tot_penalty: 121604
+student_count: 18419
+avg_penalty : 6.6021
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 60098
+student_count: 18419
+avg_penalty : 3.26283
+coloring: true
+After pair swap operator: 
+tot_penalty: 58848
+student_count: 18419
+avg_penalty : 3.19496
 
 ============================================================================
 
 running: "./solver dsat lin 10000 ./Toronto/car-s-91 >> results.txt" 
+coloring: true
+total timeslots: 36
+tot_penalty: 139730
+student_count: 16926
+avg_penalty : 8.25535
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 64310
+student_count: 16926
+avg_penalty : 3.79948
+coloring: true
+After pair swap operator: 
+tot_penalty: 62894
+student_count: 16926
+avg_penalty : 3.71582
 
 ============================================================================
 
 running: "./solver dsat lin 10000 ./Toronto/car-s-91 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/desktop >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/ear-f-83 >> results.txt" 
 coloring: true
-total timeslots: 25
-tot_penalty: 50630
-student_count: 1125
-avg_penalty : 45.0044
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/ear-f-83 >> results.txt" 
+total timeslots: 36
+tot_penalty: 139730
+student_count: 16926
+avg_penalty : 8.25535
 coloring: true
-total timeslots: 25
-tot_penalty: 50630
-student_count: 1125
-avg_penalty : 45.0044
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/hec-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 62056
+student_count: 16926
+avg_penalty : 3.66631
 coloring: true
-total timeslots: 19
-tot_penalty: 59580
-student_count: 2823
-avg_penalty : 21.1052
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/hec-s-92 >> results.txt" 
-coloring: true
-total timeslots: 19
-tot_penalty: 59580
-student_count: 2823
-avg_penalty : 21.1052
+After pair swap operator: 
+tot_penalty: 60898
+student_count: 16926
+avg_penalty : 3.5979
 
 ============================================================================
 
@@ -2382,6 +1410,16 @@ total timeslots: 22
 tot_penalty: 178200
 student_count: 5349
 avg_penalty : 33.3146
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 47230
+student_count: 5349
+avg_penalty : 8.82969
+coloring: true
+After pair swap operator: 
+tot_penalty: 44470
+student_count: 5349
+avg_penalty : 8.3137
 
 ============================================================================
 
@@ -2391,63 +1429,16 @@ total timeslots: 22
 tot_penalty: 178200
 student_count: 5349
 avg_penalty : 33.3146
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/lse-f-91 >> results.txt" 
 coloring: true
-total timeslots: 17
-tot_penalty: 51380
-student_count: 2726
-avg_penalty : 18.8481
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/lse-f-91 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 44386
+student_count: 5349
+avg_penalty : 8.298
 coloring: true
-total timeslots: 17
-tot_penalty: 51380
-student_count: 2726
-avg_penalty : 18.8481
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/pur-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/rye-s-93 >> results.txt" 
-coloring: true
-total timeslots: 24
-tot_penalty: 239886
-student_count: 11483
-avg_penalty : 20.8905
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 77578
-student_count: 611
-avg_penalty : 126.969
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/sta-f-83 >> results.txt" 
-coloring: true
-total timeslots: 13
-tot_penalty: 77578
-student_count: 611
-avg_penalty : 126.969
+After pair swap operator: 
+tot_penalty: 41172
+student_count: 5349
+avg_penalty : 7.69714
 
 ============================================================================
 
@@ -2457,6 +1448,16 @@ total timeslots: 21
 tot_penalty: 47578
 student_count: 4362
 avg_penalty : 10.9074
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 31372
+student_count: 4362
+avg_penalty : 7.19211
+coloring: true
+After pair swap operator: 
+tot_penalty: 31174
+student_count: 4362
+avg_penalty : 7.14672
 
 ============================================================================
 
@@ -2466,32 +1467,16 @@ total timeslots: 21
 tot_penalty: 47578
 student_count: 4362
 avg_penalty : 10.9074
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/uta-s-92 >> results.txt" 
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/ute-s-92 >> results.txt" 
 coloring: true
-total timeslots: 11
-tot_penalty: 101330
-student_count: 2750
-avg_penalty : 36.8473
-
-============================================================================
-
-running: "./solver dsat lin 10000 ./Toronto/ute-s-92 >> results.txt" 
+After kempe chain interchange: 
+tot_penalty: 30744
+student_count: 4362
+avg_penalty : 7.04814
 coloring: true
-total timeslots: 11
-tot_penalty: 101330
-student_count: 2750
-avg_penalty : 36.8473
+After pair swap operator: 
+tot_penalty: 30738
+student_count: 4362
+avg_penalty : 7.04677
 
 ============================================================================
 
@@ -2501,6 +1486,16 @@ total timeslots: 23
 tot_penalty: 35762
 student_count: 941
 avg_penalty : 38.0043
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 22054
+student_count: 941
+avg_penalty : 23.4368
+coloring: true
+After pair swap operator: 
+tot_penalty: 22030
+student_count: 941
+avg_penalty : 23.4113
 
 ============================================================================
 
@@ -2510,6 +1505,16 @@ total timeslots: 23
 tot_penalty: 35762
 student_count: 941
 avg_penalty : 38.0043
+coloring: true
+After kempe chain interchange: 
+tot_penalty: 22856
+student_count: 941
+avg_penalty : 24.2891
+coloring: true
+After pair swap operator: 
+tot_penalty: 22856
+student_count: 941
+avg_penalty : 24.2891
 
 ============================================================================
 
