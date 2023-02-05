@@ -90,11 +90,13 @@ class Sentence():
     A sentence consists of a set of board cells,
     and a count of the number of those cells which are mines.
     """
-    mines = set()
-    safes = set() 
+    # mines = set()
+    # safes = set() 
     def __init__(self, cells, count):
         self.cells = set(cells)
         self.count = count
+        self.mines = set() 
+        self.safes = set() 
 
     def __eq__(self, other):
         return self.cells == other.cells and self.count == other.count
@@ -204,7 +206,7 @@ class MinesweeperAI():
             for dy in [-1,0,1] : 
                 if dx == 0 and dy == 0 :
                     continue 
-                if cell[0]+dx >= 0 and cell[0]+dx < self.height and cell[1]+dy >= 0 and cell[1]+dy < self.width :
+                if  0 <= cell[0]+dx < self.height and 0 <= cell[1]+dy < self.width :
                     cells.add( (cell[0]+dx,cell[1]+dy) )
         sentence = Sentence(cells,count)
         if count == 0 :
@@ -220,7 +222,7 @@ class MinesweeperAI():
                 self.mark_safe(cell) 
             
             updated_knowledge=[]
-            for sentence in self.knowledge :
+            for sentence in self.knowledge.copy()  :
                 if sentence.count == 0 :
                     for cell in sentence.cells.copy() :
                         sentence.mark_safe(cell) 
